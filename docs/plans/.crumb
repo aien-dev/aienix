@@ -1,0 +1,26 @@
+{
+  "extensions": {
+    "generated": {
+      "children": [
+        {
+          "digest": "b131a4c1e943804ef609ac5a0cf696fc7aca58f8f22f7e0822f940a8de074850",
+          "last_commit": "6fc6396",
+          "name": "receipts",
+          "purpose": "Public copies of the org-check and repo-status receipts the plans in docs/plans cite; private re"
+        }
+      ],
+      "children_root": "sha256:16d11a9e971c4503fcf858e33318dc21aa65257b17b1da27aa35ac32e0f6ae74",
+      "compiled_at": "2026-10-16T18:26:28Z",
+      "compiler": "crumb-compile/1",
+      "digest": "sha256:6cb2c38a6d497c969f3b618a4e46677afecec3f242af082e0858b3c9246dabc1",
+      "evidence_files": 4,
+      "evidence_root": "sha256:43f613ac4c8f8433f0e1c15a886add053aab7a1873dde72335bf71993d02c134",
+      "files": 5,
+      "generated_at_commit": "6fc6396c885d0b113d0c58bedc8261b8e44b4ab5",
+      "source_tree": "sha256:64785838f08cd4536336cf8a20f16a4c8a1c7f95bee9ac54955c1dd9c071987b"
+    }
+  },
+  "name": "plans",
+  "purpose": "Dated plans and proposals for Aienix, each marked with its review status; a plan is not a decision until Drake approves it",
+  "schema_version": "1.0.0"
+}

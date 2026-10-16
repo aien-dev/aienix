@@ -7,17 +7,23 @@
           "last_commit": "23bdb25",
           "name": "assets",
           "purpose": "Hand-made wordmark for the front page, light and dark variants; no external assets."
+        },
+        {
+          "digest": "2cd009d94071352b9f3b197e774a2cd7480f7119170ac993cb17b0c84de3ebab",
+          "last_commit": "6fc6396",
+          "name": "docs",
+          "purpose": "Planning documents and decision records for the Aienix core tree"
         }
       ],
-      "children_root": "sha256:170ef12a4d8f3f615009466a94bfb072d7e684f22d554801f23969ebddc9b498",
-      "compiled_at": "2026-10-16T15:45:35Z",
+      "children_root": "sha256:8db0226f096478aa41024551f6924f313d03062ed396181df4bce53a4ed24912",
+      "compiled_at": "2026-10-16T18:26:28Z",
       "compiler": "crumb-compile/1",
-      "digest": "sha256:bf86400d45dda7fbcdd2eec52172200436e506934c8fde903741b13900fcb046",
-      "evidence_files": 0,
-      "evidence_root": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "files": 4,
-      "generated_at_commit": "23bdb257f6ed0d386294bcb70ca2df686ef0e4ee",
-      "source_tree": "sha256:b99152f6a431d1e0c244cb731059055adc1604648f6de2aa83bafaa2f48e39c5"
+      "digest": "sha256:e913ac4896e6d5d900d4fa137e4bf75b91714b5667f01f58dd015788d7ef7dd6",
+      "evidence_files": 4,
+      "evidence_root": "sha256:43f613ac4c8f8433f0e1c15a886add053aab7a1873dde72335bf71993d02c134",
+      "files": 9,
+      "generated_at_commit": "6fc6396c885d0b113d0c58bedc8261b8e44b4ab5",
+      "source_tree": "sha256:0a01bd5e59239c8418d6e0c77658b8d44c9ecfaac8978e2e735009346367e8ab"
     }
   },
   "name": "aienix",
