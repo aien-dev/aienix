@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="120" viewBox="0 0 560 120" role="img" aria-label="Aienix">
+  <title>Aienix</title>
+  <!-- Mark: six blocks of one tree, one of them lit. Hand-drawn, no external assets. -->
+  <g transform="translate(24 22)">
+    <rect x="0"  y="0"  width="22" height="22" rx="4" fill="#e6edf3"/>
+    <rect x="27" y="0"  width="22" height="22" rx="4" fill="#e6edf3"/>
+    <rect x="54" y="0"  width="22" height="22" rx="4" fill="#e6edf3"/>
+    <rect x="0"  y="27" width="22" height="22" rx="4" fill="#e6edf3"/>
+    <rect x="27" y="27" width="22" height="22" rx="4" fill="#58a6ff"/>
+    <rect x="54" y="27" width="22" height="22" rx="4" fill="#e6edf3"/>
+    <rect x="0"  y="54" width="76" height="22" rx="4" fill="#e6edf3"/>
+  </g>
+  <text x="124" y="78" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="64" font-weight="700" letter-spacing="-1.5" fill="#e6edf3">Aienix</text>
+  <text x="128" y="104" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="400" letter-spacing="0.6" fill="#9198a1">THE CORE TREE OF AIEN</text>
+</svg>
