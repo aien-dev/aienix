@@ -1,0 +1,5 @@
+{
+  "schema_version": "1.0.0",
+  "name": "receipts",
+  "purpose": "Public copies of the org-check and repo-status receipts the plans in docs/plans cite; private repository names withheld, full copies stay on the Spark"
+}

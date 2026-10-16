@@ -1,0 +1,34 @@
+receipt: org:59d0ebec3f62
+query: claim receipt
+time: 2026-10-16T18:16:48Z
+mirror: repos_listed=91 repos_mirrored=91 failed= updated=2026-10-16T17:43Z 
+repos_searched: 91 (default branch + newest 12 branches active in 60 days, commit messages on all branches) + GitHub issues and PRs
+hits: 27
+  issue  aien-dev/aien-protocols-mv#20 [closed] SignedEvaluationReceipt::verify ignores signing tier and key fingerprint
+  issue  aien-dev/spark-rsi-mv#54 [open] [release #190] Qualify one independent v2 evaluation and review-branch cycle
+  issue  aien-dev/spark-rsi-mv#57 [open] GEN-7: Consume generalization evidence as a falsifiable RSI hypothesis, without auto-promo
+  issue  aien-dev/omega-mv#480 [open] GEN-6: Run sealed compositional-generalization trial and publish a decision receipt
+  issue  aien-dev/synapse#11 [closed] Crumb D4: evidence receipts bound to ChangesetId and CrumbContextDigest
+  issue  aien-dev/aien-architecture-mv#190 [open] Release readiness: finish AIEN as one usable system (tracking)
+  issue  aien-dev/aienos-mv#383 [closed] OSC unit admission: require a signed Omega realization receipt before launch
+  pr     aien-dev/aienos-mv#391 [open] test(osc): verify changed executable bytes are refused at launch
+  pr     aien-dev/omega-mv#40 [merged] One object name, with a physical window only when attached
+  pr     aien-dev/interplane-mv#90 [merged] Require retained output for claimed test digests; redact row receipt paths
+  pr     aien-dev/omega-mv#128 [merged] test-empirical: judge rejection is a recorded no-win, not 7 check failures
+  pr     aien-dev/omega-mv#383 [merged] physics0: PD-1 development run (unchanged PD-0 learner on the machine record stream)
+  pr     aien-dev/omega-mv#71 [merged] Effect capability generations: 64-bit canonical migration (OMEGA_EFFECT_CAP64_*)
+  pr     aien-dev/aien-sovereign-core-mv#401 [merged] docs(e2e): RUN-1 second-machine verdict (R7): two machines agree on verdict_id, mutation r
+  pr     aien-dev/physics-mv#37 [merged] docs: PD-1 machine-law benchmark protocol + sufficiency and contamination audits (D7)
+  pr     aien-dev/aienos-mv#214 [merged] lane31 item1: virtio-net SMMU [host PASS, QEMU PASS, hardware NOT_RUN]
+  pr     aien-dev/omega-mv#108 [merged] docs(turing): scientific qualification state as of 62f5ba5
+  pr     aien-dev/aien-architecture-mv#61 [merged] Require qualification evidence before claiming R16 PASS
+  pr     aien-dev/spark-rsi-mv#29 [merged] explain: emit RSI cycle evidence as aien.explain.evidence-graph v1
+  pr     aien-dev/omega-mv#307 [merged] bench/prime_race: optimization campaign C1-C5 (native ties the CUDA mirror, 20.3x baseline
+  pr     aien-dev/aien-architecture-mv#40 [merged] docs(m19r): adopt M19R foundation recovery program; M19 errata
+  pr     aien-dev/omega-mv#171 [merged] Lane 32 item 4: R12-R16 re-qualification on 3108fc2 (receipts)
+  pr     aien-dev/aien-architecture-mv#168 [merged] docs: Verifiable Autonomous Computing implementation plan (source-grounded, 2026-10-08)
+  pr     aien-dev/aien-sovereign-core-mv#177 [merged] [host X] FB-1 cut 3a: per-op native mask for strict mode
+  pr     aien-dev/omega-mv#205 [merged] [host PASS][chip NOT_RUN] chip_run: shared chip-run module + refusal self-test
+  pr     aien-dev/aien-sovereign-core-mv#204 [merged] feat(aien-mcp): single-use approval consumption
+  pr     aien-dev/physics-mv#27 [merged] [host PASS][chip PASS] CHIPWAIT-2 physics: canonical wait primitive + tagged two-program d
+# Public copy: 0 line(s) naming private repositories withheld. Full receipt on the Spark at ~/org-mirror/receipts/59d0ebec3f62.txt

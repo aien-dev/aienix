@@ -1,0 +1,10 @@
+# aien-spark repos listed by 'org-check repos' on 2026-10-16, each checked with 'gh repo view <name> --json nameWithOwner'.
+# Result: 38 of 38 answer under their own aien-spark name (live there, no redirect to aien-dev).
+# Public copy: 33 private repository names withheld; full list on the Spark at ~/org-mirror/receipts/aien-spark-redirects-2026-10-16.full.txt.
+aien-spark/drakestapleton.com -> aien-spark/drakestapleton.com
+aien-spark/aien-dev -> aien-spark/aien-dev
+aien-spark/waldo -> aien-spark/waldo
+aien-spark/NightDriverStrip -> aien-spark/NightDriverStrip
+aien-spark/jan -> aien-spark/jan
+# Control, an old name that is not in the list:
+aien-spark/aienos -> aien-dev/aienos-mv

@@ -14,7 +14,7 @@ Truth about AIEN is written in six places today, by different writers, on differ
 
 | Source | Where (VERIFIED) | Who writes it |
 |---|---|---|
-| GitHub repositories | 91 repos: 48 under `aien-dev`, 38 under `aien-spark` (old names that redirect), 5 under `drakestapleton` (from `org-check repos`) | Drake and agents, through pull requests |
+| GitHub repositories | 91 repos: 48 under `aien-dev`, 38 under `aien-spark`, 5 under `drakestapleton` (from `org-check repos`). Some old `aien-spark` names redirect to `aien-dev` (example: `aien-spark/aienos` answers as `aien-dev/aienos-mv`), but all 38 listed `aien-spark` repos are live only there: each answered under its own name to `gh repo view` on 2026-10-16 (`receipts/aien-spark-redirects-2026-10-16.txt`) | Drake and agents, through pull requests |
 | Crumb files | one `.crumb` per directory; protocol in `~/aien-architecture/docs/CRUMB_PROTOCOL.md` and `CRUMB_PROTOCOL_RFC_0003.md` | agents, through `~/.local/bin/crumb create`, `seed`, `compile` |
 | Cortex | `~/.config/cortex/cortex.db`, served on 127.0.0.1:18080 | `aien-lessons`: agents via `cortex_remember`. `aien-sources`: the Write/Edit hook `~/workspace/cortex-mcp/hook.sh` and `mirror.js` copy files in automatically |
 | Mind map | `~/mindmap` (notes, ideas, hubs; `mirror/` rebuilt each build) | Drake and every AI via `~/mindmap/bin/mm`; `build.sh` by cron every 10 minutes |
@@ -28,10 +28,11 @@ Today's example (from `~/.claude/projects/-home-drakestapleton-aienix/memory/che
 ## 2. Goal state
 
 1. **Facts live once, in Aienix.** A `facts/` folder in this repository holds one small, machine-readable file per fact. Each record carries: id, statement, owner, evidence (repo, commit, path, content hash), `true_from`, `true_until` (empty while current), `recorded_at`, and the receipt that proves it. Records are append-only: changing a fact closes the old record and adds a new one, so the history of what was believed and when is kept. This repository is on GitHub (`origin https://github.com/aien-dev/aienix`, VERIFIED), so the rule "GitHub is canonical" still holds.
-2. **Every other surface is a generated view, never hand-edited.** Mind map status notes, Cortex `aien-sources` entries, crumb purpose lines, README tables and the fact sections of handoffs are produced from `facts/` by a generator. Each generated block starts with a marker naming the facts it came from, so a guard can refuse hand edits.
-3. **References are pins.** Anywhere a fact is mentioned, it is cited as `fact:<id>@<short digest>`. Changing the fact changes the digest, so every stale mention becomes findable by a plain search.
-4. **A staleness gate in the pipeline.** A change that touches a fact, or touches a file a fact points at, is refused until every pin that refers to it has been regenerated. The gate fails closed: if the mirror of the organisation is incomplete, the gate fails instead of passing.
-5. **Agents read facts through a plug, not through Markdown.** A read-only MCP server (MCP is the standard way an AI agent calls a tool) named `aienix-facts` answers `get`, `search`, `referrers_of`, `as_of(time)` and `verify`. Every answer carries the fact id and digest, so the agent's sentence can cite it.
+2. **Every other surface is a generated view, never hand-edited.** Mind map status notes, Cortex `aien-sources` entries, README tables and the fact sections of handoffs are produced from `facts/` by a generator. Each generated file or block starts with a marker naming the facts it came from; in Cortex, where entries are database rows, not files, the marker is a `generated_from` field on the row. Crumb `purpose` lines are the exception: they stay human-written (section 4, step 2).
+3. **Fact records are made by the pipeline, not by a person.** When a pull request merges into any default branch, a post-merge job writes the records for what that merge made true: "merged" facts (repo, pull request, commit) always, and "measured" facts from the run receipts the merge carries (`EvidenceReceiptV1`, `VerificationBundleV1`). Facts that need a sentence, such as "kernel X is fused", are declared by the author in a small file in the pull request and recorded by the same job at merge. A merge whose records have not landed counts as stale, so the gate below catches the gap instead of hiding it.
+4. **References are pins.** Anywhere a fact is mentioned, it is cited as `fact:<id>@<short digest>`. Changing the fact changes the digest, so every stale mention becomes findable by a plain search.
+5. **A staleness gate in the pipeline.** A change that touches a fact, or touches a file a fact points at, is refused until every pin that refers to it has been regenerated. The gate fails closed: if the mirror of the organisation is incomplete, the gate fails instead of passing.
+6. **Agents read facts through a plug, not through Markdown.** A read-only MCP server (MCP is the standard way an AI agent calls a tool) named `aienix-facts` answers `get`, `search`, `referrers_of`, `as_of(time)` and `verify`. Every answer carries the fact id and digest, so the agent's sentence can cite it.
 
 The design follows the research in `~/handoffs/2026-10-16-truth-plug-research.md` (VERIFIED present), which found no existing tool that checks "this sentence still matches its source" across many repositories. Outside tools named there (Backstage, Structurizr, Dolt, Graphiti, lychee) are comparison points only; the facts store, generator, gate and plug are built natively in Rust, no Python.
 
@@ -51,13 +52,19 @@ One agent proving to another that a claim came from a real run. One object, one 
 | `time` | when the check ran (UTC) |
 | `evidence` | digest of the checker's raw output, stored beside the receipt |
 | `signer` | key id of the machine or agent that signed |
-| `signature` | Ed25519 signature over the canonical bytes of every field above |
+| `signature` | signature over the canonical bytes of every field above, made with the scheme the one receipt wire contract names (`p256` or `ed25519`, see below) |
 
-**Verifier.** `alan verify <receipt>` checks the signature and the evidence digest, offline. `alan verify <receipt> --rerun` re-runs the named checker on the pinned inputs and compares the verdict. No language model is involved in either step; the research found deterministic checkers far more reliable than model judges (UNVERIFIED secondhand figure, section A6 of the research file).
+**Verdict rule (fixed, no judgement inside the checker).** For an absence claim ("X does not exist"): zero hits is `supported`; one or more hits is `unproven`, with the hits attached, because a hit may be an unrelated use of the same words (`org-check "Alan"` returned 448 hits, most of them words like "balancing": `org:b93a0d14d956`, kept on the Spark). To turn a hit into `contradicted`, the agent must name it as repo, path, commit and a quoted line; the rule then checks that the line is in that file at that commit. For an existence claim the same quoted-line rule decides `supported`. The agent chooses which hit to name; the decision about whether the quote is real is made by the rule, and the receipt records both. A claim the checker cannot test is `refused`.
 
-**Crypto, not invented.** Signing uses a vetted crate already in the tree, never new crypto code. Candidates on disk: `p256` (used by `SignedEvaluationReceipt`, next paragraph) and `ed25519-dalek` 2.1, a dependency of `~/open-humanity/crates/beacon-core` (with `blake3` 1.5) and of `aien-sovereign-core/tools/aien-test` (VERIFIED in both `Cargo.toml` files, the latter on GitHub `main`). Canonical bytes and digest reuse `EvidenceReceiptV1` from `aien-test/src/evidence.rs` ("canonical JSON, sha256 digest", ADR 0028 Decision 4, VERIFIED on GitHub `main`), so test evidence and claims share one canonical form. Which of the two signature crates Alan uses follows the evaluation-protocol spec, so the organisation does not end up with two signing schemes for one kind of receipt. Whether that canonical JSON matches the RFC 8785 standard the research recommends is UNVERIFIED and must be checked before the format is frozen.
+**Verifier, two modes.**
+- Offline mode, `alan verify <receipt>`: checks the signature and the evidence digest. Needs only the receipt, its evidence file and the public key; no network.
+- Fetch mode, `alan verify <receipt> --rerun`: fetches every pinned repo head (91 today) and re-runs the named checker under the rule above, then compares verdicts. Needs network access to GitHub or a complete local mirror.
 
-**Prior work inside the organisation (found by org-check, read in the organisation mirror).** AIEN already has a signed receipt: `SignedEvaluationReceipt` in `aien-protocols` (`crates/aien-evaluation-protocol/src/lib.rs`, fields `receipt`, `signature`, `cryptographic_tier`, `key_fingerprint`; signs with the `p256` crate and digests with `sha2`; mirror commit 4b76f7f, 2026-10-16). Alan does not add a third receipt family. Its first build step is to read `aien-protocols/specs/evaluation/SPEC.md` and `specs/evidence/ADAPTIVE_EVIDENCE_INTERFACE.md` and express the claim receipt as a kind of evaluation receipt inside that envelope, or record in an ADR why it cannot. Related precedents for generated views: `aienos.com` PR 32 (merged, "facts from the public GitHub record") and `interplane.io` PR 4 (merged, "Rust generator reads the protocol repository and renders the page"). Receipt: `org:59d0ebec3f62`, `org:1b26d80bd97f`.
+No language model is involved in either mode. That choice rests on one secondhand report that model judges did poorly at spotting false completion claims while a rule-based classifier did well (research file, section A6; the underlying paper was not opened, UNVERIFIED).
+
+**Crypto, not invented.** Signing uses a vetted crate already in the tree, never new crypto code. Two signing schemes already exist (`p256`, `ed25519`): `p256` in `SignedEvaluationReceipt` (next paragraph), and `ed25519-dalek` 2.1 for `VerificationBundleV1` (ADR 0033 Decision 6; `aien-sovereign-core/tools/aien-test/Cargo.toml` says "ed25519 for VerificationBundleV1 (ADR 0033 Decision 6)", VERIFIED on GitHub `main`). `ed25519-dalek` 2.1 is also in `~/open-humanity/crates/beacon-core` with `blake3` 1.5. Alan follows ADR 0029 Decision 6 ("One receipt wire contract", ACCEPTED 2026-10-02): it is expressed inside the one receipt wire contract in `aien-protocols`, or an ADR records why not. ADR 0033 notes that contract "has not landed (`specs/evidence-receipt/SUBSET.md` is the start)" and that "a third receipt dialect is therefore forbidden". Canonical bytes follow that contract; today `EvidenceReceiptV1` in `aien-test/src/evidence.rs` uses "canonical JSON, sha256 digest" (ADR 0028 Decision 4, VERIFIED on GitHub `main`). Whether that canonical JSON matches the RFC 8785 standard the research recommends is UNVERIFIED and must be checked before the format is frozen.
+
+**Prior work inside the organisation (found by org-check).** AIEN already has a signed receipt: `SignedEvaluationReceipt` in GitHub repo `aien-dev/aien-protocols-mv` (`crates/aien-evaluation-protocol/src/lib.rs`, fields `receipt`, `signature`, `cryptographic_tier`, `key_fingerprint`; signs with the `p256` crate and digests with `sha2`), read at commit 4b76f7f, which is that repo's GitHub `main` as of 2026-10-16T09:14:34Z (local copy: the bare mirror `~/org-mirror/aien-dev/aien-protocols-mv.git`). Alan does not add another receipt family. Its first build step is to read ADR 0029 Decision 6, `specs/evidence-receipt/SUBSET.md`, `specs/evaluation/SPEC.md` and `specs/evidence/ADAPTIVE_EVIDENCE_INTERFACE.md` in that repo, then express the claim receipt inside the one wire contract. Related precedents for generated views: `aienos.com` PR 32 (merged, "facts from the public GitHub record") and `interplane.io` PR 4 (merged, "Rust generator reads the protocol repository and renders the page"). Receipt: `org:59d0ebec3f62`, `org:1b26d80bd97f`.
 
 **How today's receipts become Alan receipts.** The four existing receipt tools already do the hard part; each gets a small adapter that wraps its record in the fields above and signs it.
 
@@ -75,7 +82,7 @@ First demonstration: one agent says "nothing like X exists in the organisation";
 Nothing is switched off until the facts store, the generator and the gate exist and pass on the first batch of facts. The first facts are the kinds that caused today's misses: what exists where, what is merged, what has been measured.
 
 1. **Cortex `aien-sources` retires first as a place truth is written.** It is already a machine-made copy (the Write/Edit hook mirrors files into it), so only its input changes: it mirrors `facts/` and generated views. Lowest risk, immediate benefit to every agent that recalls from it.
-2. **Crumb purpose lines next.** `crumb compile` already regenerates the structural part of every `.crumb` and `crumb verify` already refuses drift; the purpose line becomes generated from a fact in the same way.
+2. **Crumb purpose lines next.** Crumb `purpose` stays human-written (RFC-0003 D5: "The compiler never writes the semantic kernel"). Facts are cited inside it as pins; `facts verify` flags stale pins, `crumb propose` carries the fix.
 3. **Mind map status notes and hub pages.** `mirror/` is already rebuilt every build; status notes move to the same treatment.
 4. **Handoffs.** A handoff keeps plan, done and next, and cites facts by pin instead of restating them.
 5. **Agent memory and `foundation.md`.** They keep behaviour rules (how to work with Drake, which tool to run); any project state in them is replaced by a pin.
@@ -89,26 +96,29 @@ Rules that live only as advice get skipped, so every step below is a hook or a s
 | Guard | Kind | What it refuses |
 |---|---|---|
 | `claim-guard` (exists) | Stop hook | a final message with an absence claim and no `org:` or Alan receipt id |
-| `view-guard` (new) | PreToolUse hook, same shape as `manual-guard` | a hand edit to any file or block carrying the "generated from facts" marker |
-| `facts verify` (new) | native binary, run as a pipeline check, same shape as `crumb verify` | a change where any pin is stale, any fact's evidence hash no longer matches its file, any reference uses a redirecting `aien-spark` name, or the mirror is incomplete |
-| `alan verify` (new) | native binary | a receipt whose signature, evidence digest or rerun verdict does not match |
+| `view-guard` (new) | Claude Code PreToolUse hook, same shape as `manual-guard` | a Claude Code edit to any file or block carrying the "generated from facts" marker. It sees only Claude Code; see the gaps below |
+| `facts verify` (new) | native binary, run as a pipeline check on GitHub, same shape as `crumb verify` | a change where any pin is stale, any fact's evidence hash no longer matches its file, any generated view differs from what the generator would write, any reference uses an old name that GitHub redirects (checked with `gh repo view`, not assumed from the owner), or the mirror is incomplete |
+| `mm` write check (new) | inside `~/mindmap/bin/mm` and `build.sh` | an `mm` write to a generated note; `build.sh` regenerates generated notes on every run, so a hand edit is overwritten and logged |
+| Cortex write check (new) | inside the Cortex server, so every client hits it | a write to a row with `generated_from` set, from anything other than the mirror job |
+| `alan verify` (new) | native binary, offline and fetch modes | a receipt whose signature, evidence digest or rerun verdict does not match |
 | brief guard (extend) | the worker-brief writer | a worker brief that states an absence without a receipt id |
+
+Gaps, stated plainly. A Claude Code hook covers only Claude Code. These writers bypass it: `mm` (run by any AI or by Drake), `cortex_remember` and any other Cortex client, Codex, Grok, and Drake's own editor. The answer for each is a check where the write lands rather than where it starts: the `mm` and Cortex checks above, and for anything in a GitHub repository, the `facts verify` pipeline check, which regenerates every view and fails the change if the committed copy differs. A hand edit made outside Claude Code can still sit on disk on the Spark until it reaches one of those checks.
 
 Inside Aienix, a fact change and every regenerated view land in one commit, so the gate is one check. For the other repositories, until they are imported, the gate lists the referrers from the organisation mirror and a nightly run reports drift; landing one change atomically across several GitHub repositories is UNVERIFIED as possible (research, section C5) and is not designed around.
 
 ## 6. Open decisions for Drake
 
 **Question 1. Do your mind map ideas stay hand-written?**
-- Option A, keep ideas hand-written (recommended): the `ideas/` folder stays your free notebook; only status and facts become generated. You keep a place to think out loud. The cost is that an idea can mention a fact that later goes stale; the gate will flag the pin but not rewrite your words.
-- Option B, generate everything: ideas become records in `facts/` too. Nothing in the map can go stale, but adding an idea becomes a formal record, which is slower and stiffer for brainstorming.
+When an idea mentions a fact, it would carry a pin (a short tag pointing at one exact version of that fact), and the gate (an automatic check that refuses a change while anything still points at an old version) would notice when the fact changes.
+- Option A, keep ideas hand-written (recommended). If you pick it: the `ideas/` folder stays your free notebook and nothing about how you add ideas changes; only status notes become generated. The cost: an idea can mention a fact that later changes; the gate flags it, but your words stay as you wrote them until someone updates them.
+- Option B, make ideas formal records too. If you pick it: every idea becomes a record in Aienix's `facts/` folder, so nothing in the map can go stale, but adding an idea means filling in a structured record, which is slower for brainstorming. It can be undone later by moving ideas back to plain notes.
 
 **Question 2. Is "Alan" the public name?**
-- Option A, Alan publicly: matches the Joan and Alan phone-app faces. Before it appears on a public page, run `org-check "Alan"` and a public name search, and keep the footnote below wherever ALLEN (ADR 0035) could be confused with it.
-- Option B, Alan as the inside name only: a different public name is picked later; no confusion with ALLEN in public material, at the cost of a second name to keep in step.
+- Option A, Alan in public (recommended): it is the name you chose and it matches the Joan and Alan phone-app faces. If you pick it: the footnote below goes wherever ALLEN (ADR 0035) could be confused with it, and a whole-word name search runs before the first public page (the word search the tool does today also matches words like "balancing", so it cannot settle this yet).
+- Option B, Alan inside only. If you pick it: a different public name is chosen later, which removes any mix-up with ALLEN in public material, at the cost of two names for one thing that must be kept in step.
 
-**Question 3. Should other people's agents be able to check Alan receipts from the start?**
-- Option A, inside the Spark first (recommended): receipts are signed and checked only by our own agents until the format is frozen. Lower exposure while the format can still change.
-- Option B, public from the start: the verifier and the public key are published with the first release so anyone can check a receipt. Shows the idea working sooner; any format change after that breaks other people's copies.
+**Decided here, not asked.** Alan receipts are signed and checked inside the Spark first, and the verifier and public key are published once the format is settled. Reason: under ADR 0029 Decision 6 the receipt must fit the one wire contract in `aien-protocols`, which has not landed; publishing earlier would freeze a format that is expected to change and break other people's copies.
 
 ## 7. Not in scope, not decided
 
@@ -122,7 +132,7 @@ Inside Aienix, a fact change and every regenerated view land in one commit, so t
 
 ## Receipts for claims in this document
 
-Every "exists / does not exist" sentence above rests on these `org-check` runs (receipts in `~/org-mirror/receipts/`). org-check does not see unmerged local work.
+Every "exists / does not exist" sentence above rests on these `org-check` runs. Copies are in `docs/plans/receipts/` next to this file so a reader on GitHub can check them; lines naming private repositories are withheld from the public copies, and the full receipts stay on the Spark in `~/org-mirror/receipts/`. org-check does not see unmerged local work.
 
 - `CHECKED org:8ef76b3bbdee: "single source of truth" in 90 repos (default branch, branches active in 60 days, all commit messages, issues, PRs) at 2026-10-16T18:16:35Z: 93 hit(s).`
 - `CHECKED org:59d0ebec3f62: "claim receipt" in 91 repos (default branch, newest 12 branches active in 60 days, all commit messages, issues, PRs) at 2026-10-16T18:16:48Z: 27 hit(s).`
