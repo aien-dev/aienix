@@ -1,0 +1,19 @@
+{
+  "extensions": {
+    "generated": {
+      "children": [],
+      "children_root": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "compiled_at": "2026-10-16T15:45:35Z",
+      "compiler": "crumb-compile/1",
+      "digest": "sha256:7b24cfd9fd6f6cad44d484ea7ef6cbb902cd13cd8c132803a220d316cc8566c0",
+      "evidence_files": 0,
+      "evidence_root": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "files": 2,
+      "generated_at_commit": "23bdb257f6ed0d386294bcb70ca2df686ef0e4ee",
+      "source_tree": "sha256:a75dd43874f0cc7f5b6d77553f9b763939172cf0010469e661fa7c852389dfc4"
+    }
+  },
+  "name": "assets",
+  "purpose": "Hand-made wordmark for the front page, light and dark variants; no external assets.",
+  "schema_version": "1.0.0"
+}

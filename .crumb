@@ -1,0 +1,26 @@
+{
+  "extensions": {
+    "generated": {
+      "children": [
+        {
+          "digest": "7b24cfd9fd6f6cad44d484ea7ef6cbb902cd13cd8c132803a220d316cc8566c0",
+          "last_commit": "23bdb25",
+          "name": "assets",
+          "purpose": "Hand-made wordmark for the front page, light and dark variants; no external assets."
+        }
+      ],
+      "children_root": "sha256:170ef12a4d8f3f615009466a94bfb072d7e684f22d554801f23969ebddc9b498",
+      "compiled_at": "2026-10-16T15:45:35Z",
+      "compiler": "crumb-compile/1",
+      "digest": "sha256:bf86400d45dda7fbcdd2eec52172200436e506934c8fde903741b13900fcb046",
+      "evidence_files": 0,
+      "evidence_root": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "files": 4,
+      "generated_at_commit": "23bdb257f6ed0d386294bcb70ca2df686ef0e4ee",
+      "source_tree": "sha256:b99152f6a431d1e0c244cb731059055adc1604648f6de2aa83bafaa2f48e39c5"
+    }
+  },
+  "name": "aienix",
+  "purpose": "Aienix: the reserved home of the AIEN core tree. Front page, licence and wordmark only until the component repositories (aienos, omega, aien-sovereign-core, aien-architecture, aien-protocols, physics) are imported with full history.",
+  "schema_version": "1.0.0"
+}
