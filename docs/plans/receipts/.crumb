@@ -1,5 +1,19 @@
 {
-  "schema_version": "1.0.0",
+  "extensions": {
+    "generated": {
+      "children": [],
+      "children_root": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "compiled_at": "2026-10-16T18:26:28Z",
+      "compiler": "crumb-compile/1",
+      "digest": "sha256:b131a4c1e943804ef609ac5a0cf696fc7aca58f8f22f7e0822f940a8de074850",
+      "evidence_files": 4,
+      "evidence_root": "sha256:43f613ac4c8f8433f0e1c15a886add053aab7a1873dde72335bf71993d02c134",
+      "files": 4,
+      "generated_at_commit": "6fc6396c885d0b113d0c58bedc8261b8e44b4ab5",
+      "source_tree": "sha256:aba125c13876a621a5084b5eef9c51ea7c5941be5a246f81c602aad40a36c9df"
+    }
+  },
   "name": "receipts",
-  "purpose": "Public copies of the org-check and repo-status receipts the plans in docs/plans cite; private repository names withheld, full copies stay on the Spark"
+  "purpose": "Public copies of the org-check and repo-status receipts the plans in docs/plans cite; private repository names withheld, full copies stay on the Spark",
+  "schema_version": "1.0.0"
 }
