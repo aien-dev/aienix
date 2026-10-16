@@ -1,0 +1,19 @@
+{
+  "extensions": {
+    "generated": {
+      "children": [],
+      "children_root": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "compiled_at": "2026-10-16T18:17:56Z",
+      "compiler": "crumb-compile/1",
+      "digest": "sha256:1e79e49f03686d8047d412071b2c8448420576ac07cc506b00d3a648cf8248e2",
+      "evidence_files": 0,
+      "evidence_root": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "files": 0,
+      "generated_at_commit": "3de2e4377c43cb6e101d0884c3e9249c2d9d94e2",
+      "source_tree": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "name": "plans",
+  "purpose": "Dated plans and proposals for Aienix, each marked with its review status; a plan is not a decision until Drake approves it",
+  "schema_version": "1.0.0"
+}

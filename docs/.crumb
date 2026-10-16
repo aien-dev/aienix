@@ -1,0 +1,26 @@
+{
+  "extensions": {
+    "generated": {
+      "children": [
+        {
+          "digest": "1e79e49f03686d8047d412071b2c8448420576ac07cc506b00d3a648cf8248e2",
+          "last_commit": "",
+          "name": "plans",
+          "purpose": "Dated plans and proposals for Aienix, each marked with its review status; a plan is not a decisi"
+        }
+      ],
+      "children_root": "sha256:8d5ef2e73024d060841c61ffe96c9e4f08d129585a458a7ed5a5d90d910abd6b",
+      "compiled_at": "2026-10-16T18:17:56Z",
+      "compiler": "crumb-compile/1",
+      "digest": "sha256:c11464c022bb12461dec97df00690ea6b66ffcbe773a43f9580c07498afc26b9",
+      "evidence_files": 0,
+      "evidence_root": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "files": 0,
+      "generated_at_commit": "3de2e4377c43cb6e101d0884c3e9249c2d9d94e2",
+      "source_tree": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "name": "docs",
+  "purpose": "Planning documents and decision records for the Aienix core tree",
+  "schema_version": "1.0.0"
+}
