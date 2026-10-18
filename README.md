@@ -31,6 +31,10 @@ The project is led by one engineer, Drake Stapleton, working with AI agents as d
 
 **Planning.** This repository is the reserved home for the core tree. The code still lives in the component repositories listed below, each of which is pre-alpha and says so. They will be imported here one at a time, with full history, once each one's open pull requests have drained.
 
+### Latest: Allen lives on a computer of its own
+
+*Updated 2026-10-18.* **Allen**, the resident agent AIENOS is built around, runs full screen on a desktop test computer under the AIENOS kernel, with no other operating system underneath. Shown on that real machine: AIENOS loads over the local network as a signed image; a wired keyboard works; "Hello Allen" gets "Hello Humanity." from Allen's own local rules, with no model and no network; and Allen made its own memory section on the owner-approved internal disk, without touching the existing data, then saved to both copies. Shown so far only in the emulator: Allen remembering a taught note after a restart, and the new startup, a night sky where two black holes merge and Allen forms from their light, as a mind drawn in light rather than a face. Not done yet: confining what devices can reach in memory (an IOMMU), so it is not for sensitive use. Details and test results: [AIENOS pull request #415](https://github.com/aien-dev/aienos-mv/pull/415).
+
 What this repository is not: a release, a finished system, or a claim of hardware qualification. When a component is qualified on the Spark, the evidence bundle that proves it will be linked from this page.
 
 ## The tree
