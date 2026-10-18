@@ -33,6 +33,8 @@ The project is led by one engineer, Drake Stapleton, working with AI agents as d
 
 What this repository is not: a release, a finished system, or a claim of hardware qualification. When a component is qualified on the Spark, the evidence bundle that proves it will be linked from this page.
 
+**Latest from the components (2026-10-18).** Allen, the resident agent of the AIENOS kernel, runs full screen on an x86 test computer: a night sky and water that move with what he is doing, a name he asks for at first meeting and keeps, and, in the emulator so far, a courier by which he hands a question he cannot answer to a language model on another computer and says the answer as his own. The receipts are in the [aienos repository](https://github.com/aien-dev/aienos).
+
 ## The tree
 
 ```text
