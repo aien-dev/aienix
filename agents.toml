@@ -1,0 +1,15 @@
+# Agent guidance manifest for Aienix, the core tree.
+# Schema v1, proposed in aien-architecture docs/adr/0038-agent-guidance-travels-with-the-tree.md.
+# This repository is markdown only today, so it declares no skills and no hooks.
+
+schema = 1
+
+[component]
+name = "aienix"
+tree = "core"
+
+[attachments]
+# An attachment's agents.toml is loaded only if its name is listed here.
+# Candidates, from the attachments table in README.md (none allowed yet):
+#   synapse, benchmarks, interplane, aegis-runtime, spark-rsi, open-humanity
+allow = []

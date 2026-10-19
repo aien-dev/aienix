@@ -85,6 +85,14 @@ Every pull request in every AIEN repository is judged on the Spark itself, by ou
 
 The design is recorded in the architecture repository as [ADR 0033](https://github.com/aien-dev/aien-architecture/tree/main/docs/adr). Each directory also carries a `.crumb` file describing its purpose and contents; a change that leaves the crumbs stale fails its gate.
 
+### Agent guidance
+
+AI agents do much of the day-to-day work, so the instructions they follow belong in the tree beside the code they apply to. The design is proposed in [ADR 0038](https://github.com/aien-dev/aien-architecture/blob/main/docs/adr/0038-agent-guidance-travels-with-the-tree.md) and borrows its central idea from [Symposium](https://github.com/symposium-dev/symposium). Until it is accepted and merged, the rules below are enforced only by hooks on the Spark itself.
+
+- **Every component carries an `agents.toml` and its skills.** The manifest sits at the repository root and is readable by any agent. It names the component's skills (short `SKILL.md` notes: how to build, how to run the full test target, what must not move) and the hooks that enforce the standing rules, such as no force-push, no admin merge, and no edits to gates or crumbs.
+- **Attachments are allow-listed at the pin.** A core component lists the attachments it trusts under `[attachments]` in its `agents.toml`. An attachment's guidance is loaded only if its name is on that list. This repository's [agents.toml](agents.toml) starts with an empty list.
+- **`aien agents sync` is the one command.** It reads the manifest and writes the files each agent reads: Claude Code settings and skills, a block in `AGENTS.md` for Codex, and skills for Hermes. `aien agents check` fails when those files have fallen behind the manifest.
+
 ## Principles
 
 - **Closest to the metal.** The fastest correct path wins. Software stays out of the hardware's way, and headline numbers are reported as a fraction of the machine's physical limit.
