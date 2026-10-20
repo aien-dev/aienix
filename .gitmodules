@@ -1,6 +1,6 @@
-[submodule "aienos"]
-	path = aienos
-	url = https://github.com/aien-dev/aienos.git
+[submodule "aienux"]
+	path = aienux
+	url = https://github.com/aien-dev/aienux.git
 [submodule "omega"]
 	path = omega
 	url = https://github.com/aien-dev/omega.git
