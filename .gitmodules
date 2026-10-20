@@ -1,0 +1,36 @@
+[submodule "aienos"]
+	path = aienos
+	url = https://github.com/aien-dev/aienos.git
+[submodule "omega"]
+	path = omega
+	url = https://github.com/aien-dev/omega.git
+[submodule "sovereign-core"]
+	path = sovereign-core
+	url = https://github.com/aien-dev/aien-sovereign-core.git
+[submodule "architecture"]
+	path = architecture
+	url = https://github.com/aien-dev/aien-architecture.git
+[submodule "protocols"]
+	path = protocols
+	url = https://github.com/aien-dev/aien-protocols.git
+[submodule "physics"]
+	path = physics
+	url = https://github.com/aien-dev/physics.git
+[submodule "attachments/synapse"]
+	path = attachments/synapse
+	url = https://github.com/aien-dev/synapse.git
+[submodule "attachments/benchmarks"]
+	path = attachments/benchmarks
+	url = https://github.com/aien-dev/benchmarks.git
+[submodule "attachments/interplane"]
+	path = attachments/interplane
+	url = https://github.com/aien-dev/interplane.git
+[submodule "attachments/aegis-runtime"]
+	path = attachments/aegis-runtime
+	url = https://github.com/aien-dev/aegis-runtime.git
+[submodule "attachments/spark-rsi"]
+	path = attachments/spark-rsi
+	url = https://github.com/aien-dev/spark-rsi.git
+[submodule "attachments/open-humanity"]
+	path = attachments/open-humanity
+	url = https://github.com/aien-dev/open-humanity.git

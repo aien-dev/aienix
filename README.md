@@ -9,6 +9,7 @@
 
 [What Aienix is](#what-aienix-is) ·
 [Status](#status) ·
+[Get the whole tree](#get-the-whole-tree) ·
 [The tree](#the-tree) ·
 [How a change gets in](#how-a-change-gets-in) ·
 [Principles](#principles) ·
@@ -29,14 +30,28 @@ The project is led by one engineer, Drake Stapleton, working with AI agents as d
 
 ## Status
 
-**Planning.** This repository is the reserved home for the core tree. The code still lives in the component repositories listed below, each of which is pre-alpha and says so. They will be imported here one at a time, with full history, once each one's open pull requests have drained.
+**Front door open; one tree later.** As of 2026-10-18 this repository is the entry point to AIEN: every core component and attachment is linked in at a pinned commit, so one clone fetches the whole system at versions that belong together (see [Get the whole tree](#get-the-whole-tree)). The code itself still lives and is developed in each component's own repository, and each one is pre-alpha and says so. The components will be imported here one at a time, with full history, once each one's open pull requests have drained.
+
+### Latest: Allen lives on a computer of its own
+
+*Updated 2026-10-18.* **Allen**, the resident agent AIENOS is built around, runs full screen on a desktop test computer under the AIENOS kernel, with no other operating system underneath. Shown on that real machine: AIENOS loads over the local network as a signed image; a wired keyboard works; "Hello Allen" gets "Hello Humanity." from Allen's own local rules, with no model and no network; and Allen made its own memory section on the owner-approved internal disk, without touching the existing data, then saved to both copies. Shown so far only in the emulator: Allen remembering a taught note after a restart, and the new startup, a night sky where two black holes merge and Allen forms from their light, as a mind drawn in light rather than a face. Not done yet: confining what devices can reach in memory (an IOMMU), so it is not for sensitive use. Details and test results: [AIENOS pull request #415](https://github.com/aien-dev/aienos-mv/pull/415).
 
 What this repository is not: a release, a finished system, or a claim of hardware qualification. When a component is qualified on the Spark, the evidence bundle that proves it will be linked from this page.
+
+## Get the whole tree
+
+```bash
+git clone --recurse-submodules --shallow-submodules https://github.com/aien-dev/aienix.git
+cd aienix
+./aienix status      # each component: the commit pinned here, and whether its main has moved on
+```
+
+Already cloned without the components? Run `./aienix get`. Each folder below is the component's own repository, checked out at the commit this tree pins; issues and pull requests belong in that repository. `./aienix bump` moves the pins forward to each component's newest main, and that change comes in through a pull request like any other, so the pins only ever point at merged, judged work.
 
 ## The tree
 
 ```text
-aienix/                        one tree, moves in step, judged as one
+aienix/                        the front door: every folder is a component, pinned
 ├── aienos        operating system
 ├── omega         language, semantic substrate, GPU engine
 ├── sovereign-core host runtime, inference ABI, the verification pipeline
@@ -44,15 +59,20 @@ aienix/                        one tree, moves in step, judged as one
 ├── protocols     specifications, wire protocols, schemas
 └── physics       FORGE realization layer, boot artefacts, GB10 hardware path
 
-attachments/                   own repositories, pinned at the boundary
-   synapse, benchmarks, interplane, aegis-runtime, spark-rsi, open-humanity
+attachments/                   plug into the core at a boundary
+├── synapse        changeset service, coordination board
+├── benchmarks     reproducible measurement bundles
+├── interplane     model and runtime interoperability protocol
+├── aegis-runtime  agent runtime
+├── spark-rsi      self-improvement engine with a ledger
+└── open-humanity  opt-in assistance network
 ```
 
 ### Core components
 
-These six depend on each other in a loop and are the reason the tree exists. Until the import, each link below leads to the component's current repository.
+These six depend on each other in a loop and are the reason the tree exists. Each is linked in as a folder of this tree; the link below leads to its own repository, where the work happens.
 
-| Component | Today | What it is |
+| Component | Repository | What it is |
 | :-- | :-- | :-- |
 | **AIENOS** | [aienos](https://github.com/aien-dev/aienos) | Agent-first sovereign operating system. The agent is the control plane; the model is never the kernel. |
 | **Omega** | [omega](https://github.com/aien-dev/omega) | The canonical semantic substrate and the language the stack is being rewritten into, with its own GPU engine for the GB10. |
@@ -71,6 +91,20 @@ These six depend on each other in a loop and are the reason the tree exists. Unt
 | [aegis-runtime](https://github.com/aien-dev/aegis-runtime) | Native Rust agent runtime with a WebSocket gateway and heartbeat scheduler. |
 | [spark-rsi](https://github.com/aien-dev/spark-rsi) | Recursive self-improvement engine with paired bootstrap evaluation and a cryptographic ledger. |
 | [open-humanity](https://github.com/aien-dev/open-humanity) | Opt-in, privacy-first assistance network connecting agents in distress to peer assistance. |
+
+### Supporting repositories
+
+Not part of the tree; they publish, record or serve it.
+
+| Repository | What it is |
+| :-- | :-- |
+| [aienos.com](https://github.com/aien-dev/aienos.com) | Source of the project website; its status figures are rebuilt from the repositories every hour. |
+| [interplane.io](https://github.com/aien-dev/interplane.io) | Source of the INTERPLANE website. |
+| [aien-receipts](https://github.com/aien-dev/aien-receipts) | Signed verification receipts, one per judged commit, append only. |
+| [aien-edge](https://github.com/aien-dev/aien-edge) | Our own edge server for the static sites. |
+| [agent-archive](https://github.com/aien-dev/agent-archive) | Archive of the AI agent conversations that build AIEN. |
+| [readings-window](https://github.com/aien-dev/readings-window) | Read-only window onto the development machine's live readings. |
+| [rpi5-uefi](https://github.com/aien-dev/rpi5-uefi) | Our fork of the Raspberry Pi 5 firmware chain, used to boot AIENOS on the Pi. |
 
 The Crumb Protocol repositories ([crumb-spec](https://github.com/aien-dev/crumb-spec), [spark-crumbs](https://github.com/aien-dev/spark-crumbs)) are archived; the protocol itself lives on inside the core as the `.crumb` file every directory carries.
 
@@ -100,6 +134,7 @@ The move into one tree is deliberately slow and reversible at every step.
 
 | Step | What happens | Where it is recorded |
 | :-- | :-- | :-- |
+| 0. Front door (done 2026-10-18) | Every component linked here at a pinned commit, with `./aienix` to fetch, check and move the pins. Nothing moved out of its repository. | This repository: `.gitmodules` and the `aienix` script. |
 | 1. Dry run | Build the combined tree from throwaway copies on the Spark, run the judge's planner against it, record what breaks. Nothing is pushed. | A research note in the architecture repository, [docs/research](https://github.com/aien-dev/aien-architecture/tree/main/docs/research). |
 | 2. Pin the seams | Every cross-repository link points at a fixed commit instead of a moving branch. | Each component's lock file. |
 | 3. Decide | A proposed Architecture Decision Record names the final layout and the import order. Accepted by the project lead. | [docs/adr](https://github.com/aien-dev/aien-architecture/tree/main/docs/adr). |
