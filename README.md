@@ -1,13 +1,13 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/aienix-wordmark-dark.svg">
-  <img src="assets/aienix-wordmark-light.svg" width="560" alt="Aienix: the core tree of AIEN">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/aienos-wordmark-dark.svg">
+  <img src="assets/aienos-wordmark-light.svg" width="560" alt="AienOS: the core tree of AIEN">
 </picture>
 
 **Persistent machine intelligence on a machine you own, built in the open.**
 
-[What Aienix is](#what-aienix-is) ·
+[What AienOS is](#what-aienos-is) ·
 [Status](#status) ·
 [Get the whole tree](#get-the-whole-tree) ·
 [The tree](#the-tree) ·
@@ -20,11 +20,11 @@
 
 ---
 
-## What Aienix is
+## What AienOS is
 
 AIEN is a sovereign computing stack: an operating system, a language with its own GPU engine, a host runtime, and a verification pipeline, all written to run as close to the hardware as the hardware allows. The development machine is a single NVIDIA DGX Spark (Grace Blackwell GB10). Nothing in the trusted base depends on an outside service, and every claim the project makes resolves to a reproducible command and a signed evidence bundle.
 
-**Aienix is the core tree of that stack.** It follows the Unix idea the way its authors meant it: small tools that each do one job and compose, kept together in one source tree so they move in step. Components that only consume the core (adapters, protocol bridges, experiments) are attachments. They live in their own repositories and plug in at a boundary with one recorded pin.
+**AienOS is the core tree of that stack.** It follows the Unix idea the way its authors meant it: small tools that each do one job and compose, kept together in one source tree so they move in step. Components that only consume the core (adapters, protocol bridges, experiments) are attachments. They live in their own repositories and plug in at a boundary with one recorded pin.
 
 The project is led by one engineer, Drake Stapleton, working with AI agents as day-to-day collaborators. The agents write, test and review; the engineer decides. The architecture, the decision records and the execution plan are public and are the authority for what gets built.
 
@@ -43,16 +43,16 @@ What this repository is not: a release, a finished system, or a claim of hardwar
 ```bash
 git clone --recurse-submodules --shallow-submodules https://github.com/aien-dev/aienix.git
 cd aienix
-./aienix status      # each component: the commit pinned here, and whether its main has moved on
+./aienos status      # each component: the commit pinned here, and whether its main has moved on
 ```
 
-Already cloned without the components? Run `./aienix get`. Each folder below is the component's own repository, checked out at the commit this tree pins; issues and pull requests belong in that repository. `./aienix bump` moves the pins forward to each component's newest main, and that change comes in through a pull request like any other, so the pins only ever point at merged, judged work.
+Already cloned without the components? Run `./aienos get`. Each folder below is the component's own repository, checked out at the commit this tree pins; issues and pull requests belong in that repository. `./aienos bump` moves the pins forward to each component's newest main, and that change comes in through a pull request like any other, so the pins only ever point at merged, judged work.
 
 ## The tree
 
 ```text
-aienix/                        the front door: every folder is a component, pinned
-├── aienos        operating system
+aienos/                        the front door: every folder is a component, pinned
+├── aienux        kernel
 ├── omega         language, semantic substrate, GPU engine
 ├── sovereign-core host runtime, inference ABI, the verification pipeline
 ├── architecture  flows, boundaries, decision records, execution plan
@@ -74,7 +74,7 @@ These six depend on each other in a loop and are the reason the tree exists. Eac
 
 | Component | Repository | What it is |
 | :-- | :-- | :-- |
-| **AIENOS** | [aienos](https://github.com/aien-dev/aienos) | Agent-first sovereign operating system. The agent is the control plane; the model is never the kernel. |
+| **Aienux** | [aienux](https://github.com/aien-dev/aienux) | Agent-first sovereign kernel. The agent is the control plane; the model is never the kernel. |
 | **Omega** | [omega](https://github.com/aien-dev/omega) | The canonical semantic substrate and the language the stack is being rewritten into, with its own GPU engine for the GB10. |
 | **Sovereign core** | [aien-sovereign-core](https://github.com/aien-dev/aien-sovereign-core) | Host runtime and verification tooling in Rust: the `aien` CLI and daemon, inference ABI, paged KV cache, scheduler, and the pipeline that judges every repository. |
 | **Architecture** | [aien-architecture](https://github.com/aien-dev/aien-architecture) | Canonical architecture: flows, boundaries, Architecture Decision Records, and the map from design to implementation. |
@@ -134,7 +134,7 @@ The move into one tree is deliberately slow and reversible at every step.
 
 | Step | What happens | Where it is recorded |
 | :-- | :-- | :-- |
-| 0. Front door (done 2026-10-18) | Every component linked here at a pinned commit, with `./aienix` to fetch, check and move the pins. Nothing moved out of its repository. | This repository: `.gitmodules` and the `aienix` script. |
+| 0. Front door (done 2026-10-18) | Every component linked here at a pinned commit, with `./aienos` to fetch, check and move the pins. Nothing moved out of its repository. | This repository: `.gitmodules` and the `aienix` script. |
 | 1. Dry run | Build the combined tree from throwaway copies on the Spark, run the judge's planner against it, record what breaks. Nothing is pushed. | A research note in the architecture repository, [docs/research](https://github.com/aien-dev/aien-architecture/tree/main/docs/research). |
 | 2. Pin the seams | Every cross-repository link points at a fixed commit instead of a moving branch. | Each component's lock file. |
 | 3. Decide | A proposed Architecture Decision Record names the final layout and the import order. Accepted by the project lead. | [docs/adr](https://github.com/aien-dev/aien-architecture/tree/main/docs/adr). |
@@ -151,4 +151,4 @@ The move into one tree is deliberately slow and reversible at every step.
 
 AGPL-3.0-or-later. See [LICENSE](LICENSE).
 
-<sub>Aienix is not a UNIX and makes no such claim. UNIX is a registered trademark of The Open Group. NVIDIA, DGX and Grace Blackwell are trademarks of NVIDIA Corporation.</sub>
+<sub>AienOS is not a UNIX and makes no such claim. UNIX is a registered trademark of The Open Group. NVIDIA, DGX and Grace Blackwell are trademarks of NVIDIA Corporation.</sub>
