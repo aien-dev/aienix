@@ -86,7 +86,7 @@ These six depend on each other in a loop and are the reason the tree exists. Eac
 | Repository | What it is |
 | :-- | :-- |
 | [synapse](https://github.com/aien-dev/synapse) | Agent-native changeset service and shared coordination board, with Git and Radicle interoperability. |
-| [benchmarks](https://github.com/aien-dev/benchmarks) | Reproducible measurement bundles. Speed is reported against the machine's physical ceiling and our own previous run. |
+| [benchmarks](https://github.com/aien-dev/benchmarks) | Reproducible measurement bundles. Speed is reported against the machine's physical ceiling and my own previous run. |
 | [interplane](https://github.com/aien-dev/interplane) | Open interoperability protocol between AI models and agent runtimes. Models express intent; runtimes retain authority. |
 | [aegis-runtime](https://github.com/aien-dev/aegis-runtime) | Native Rust agent runtime with a WebSocket gateway and heartbeat scheduler. |
 | [spark-rsi](https://github.com/aien-dev/spark-rsi) | Recursive self-improvement engine with paired bootstrap evaluation and a cryptographic ledger. |
@@ -101,16 +101,16 @@ Not part of the tree; they publish, record or serve it.
 | [aienos.com](https://github.com/aien-dev/aienos.com) | Source of the project website; its status figures are rebuilt from the repositories every hour. |
 | [interplane.io](https://github.com/aien-dev/interplane.io) | Source of the INTERPLANE website. |
 | [aien-receipts](https://github.com/aien-dev/aien-receipts) | Signed verification receipts, one per judged commit, append only. |
-| [aien-edge](https://github.com/aien-dev/aien-edge) | Our own edge server for the static sites. |
+| [aien-edge](https://github.com/aien-dev/aien-edge) | My own edge server for the static sites. |
 | [agent-archive](https://github.com/aien-dev/agent-archive) | Archive of the AI agent conversations that build AIEN. |
 | [readings-window](https://github.com/aien-dev/readings-window) | Read-only window onto the development machine's live readings. |
-| [rpi5-uefi](https://github.com/aien-dev/rpi5-uefi) | Our fork of the Raspberry Pi 5 firmware chain, used to boot AIENOS on the Pi. |
+| [rpi5-uefi](https://github.com/aien-dev/rpi5-uefi) | My fork of the Raspberry Pi 5 firmware chain, used to boot AIENOS on the Pi. |
 
 The Crumb Protocol repositories ([crumb-spec](https://github.com/aien-dev/crumb-spec), [spark-crumbs](https://github.com/aien-dev/spark-crumbs)) are archived; the protocol itself lives on inside the core as the `.crumb` file every directory carries.
 
 ## How a change gets in
 
-Every pull request in every AIEN repository is judged on the Spark itself, by our own pipeline, not by a hosted runner.
+Every pull request in every AIEN repository is judged on the Spark itself, by my own pipeline, not by a hosted runner.
 
 1. **A gate manifest** in the repository declares each test, the files it depends on, and what counts as a pass.
 2. **The judge** checks out the exact commit, reruns only the gates whose inputs changed, and writes an evidence bundle: per-gate verdicts, exit codes, and content-addressed logs.
@@ -125,7 +125,7 @@ The design is recorded in the architecture repository as [ADR 0033](https://gith
 - **Sovereign.** No outside dependencies in the trusted base. Builds are offline and reproducible. No CUDA toolkit, no systemd, no Python anywhere in the project.
 - **Rust is scaffolding, Omega is the destination.** Rust carries the stack today; the long-term home for every component is Omega. C only where the hardware justifies it, assembly only where measured.
 - **Evidence or nothing.** A result is not demonstrated until a qualification receipt for it exists. A target is never evidence of itself.
-- **Compare only with ourselves.** Progress is measured against our own previous run, never against other people's systems.
+- **Compare only with myself.** Progress is measured against my own previous run, never against other people's systems.
 - **Open.** Everything is public and licensed AGPL-3.0-or-later, including models and weights.
 
 ## Roadmap
