@@ -1,0 +1,30 @@
+gate: AIENIX-GITMODULES
+manifest_version: 2
+owner: aienix
+requires:
+  - portable
+inputs:
+  - .gitmodules
+  - README.md
+  - tests/gates/
+  - aienux
+  - omega
+  - sovereign-core
+  - architecture
+  - protocols
+  - physics
+  - attachments/synapse
+  - attachments/benchmarks
+  - attachments/interplane
+  - attachments/aegis-runtime
+  - attachments/spark-rsi
+  - attachments/open-humanity
+run:
+  exec: tests/gates/run.sh
+  args: ["gitmodules"]
+expects:
+  exit: 0
+  verdict: PASS
+timeout: 2m
+exactness: EXACT
+cache_scope: portable
