@@ -132,7 +132,7 @@ The Crumb Protocol repositories ([crumb-spec](https://github.com/aien-dev/crumb-
 
 ## How a change gets in
 
-Every pull request in every AIEN repository is judged on the Spark itself, by the project pipeline, not by a hosted runner.
+For repositories enrolled in the project verification workflow, the Spark judge runs the component gates and publishes exact-source evidence. The hosted check validates that evidence; it does not stand in for a physical machine. Check each repository's actual manifest and required checks rather than assume that every fork, historical checkout or private experiment has identical coverage.
 
 1. **A gate manifest** in the repository declares each test, the files it depends on, and what counts as a pass.
 2. **The judge** checks out the exact commit, reruns only the gates whose inputs changed, and writes an evidence bundle: per-gate verdicts, exit codes, and content-addressed logs.

@@ -3,34 +3,34 @@
 	url = https://github.com/aien-dev/aienux.git
 [submodule "omega"]
 	path = omega
-	url = https://github.com/aien-dev/omega.git
+	url = https://github.com/aien-dev/omega-mv.git
 [submodule "sovereign-core"]
 	path = sovereign-core
-	url = https://github.com/aien-dev/aien-sovereign-core.git
+	url = https://github.com/aien-dev/aien-sovereign-core-mv.git
 [submodule "architecture"]
 	path = architecture
-	url = https://github.com/aien-dev/aien-architecture.git
+	url = https://github.com/aien-dev/aien-architecture-mv.git
 [submodule "protocols"]
 	path = protocols
-	url = https://github.com/aien-dev/aien-protocols.git
+	url = https://github.com/aien-dev/aien-protocols-mv.git
 [submodule "physics"]
 	path = physics
-	url = https://github.com/aien-dev/physics.git
+	url = https://github.com/aien-dev/physics-mv.git
 [submodule "attachments/synapse"]
 	path = attachments/synapse
 	url = https://github.com/aien-dev/synapse.git
 [submodule "attachments/benchmarks"]
 	path = attachments/benchmarks
-	url = https://github.com/aien-dev/benchmarks.git
+	url = https://github.com/aien-dev/benchmarks-mv.git
 [submodule "attachments/interplane"]
 	path = attachments/interplane
-	url = https://github.com/aien-dev/interplane.git
+	url = https://github.com/aien-dev/interplane-mv.git
 [submodule "attachments/aegis-runtime"]
 	path = attachments/aegis-runtime
-	url = https://github.com/aien-dev/aegis-runtime.git
+	url = https://github.com/aien-dev/aegis-runtime-mv.git
 [submodule "attachments/spark-rsi"]
 	path = attachments/spark-rsi
-	url = https://github.com/aien-dev/spark-rsi.git
+	url = https://github.com/aien-dev/spark-rsi-mv.git
 [submodule "attachments/open-humanity"]
 	path = attachments/open-humanity
 	url = https://github.com/aien-dev/open-humanity.git
