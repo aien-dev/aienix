@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this source map or its teaching material, cite the exact repository revision. Component software and papers have their own provenance."
+title: "AienOS: pinned component front door and reproducible lessons"
+type: software
+authors:
+  - family-names: Stapleton
+    given-names: Drake
+repository-code: https://github.com/aien-dev/aienix
+url: https://www.aienos.com
+license: AGPL-3.0-or-later

@@ -1,0 +1,9 @@
+source: d575aab28b2a635dd08b452f5995b2156c6b9213
+component count: 12
+kernel pin: 160000 commit 17ad0167eac91edc280472020679a11969a78609	aienux
+language pin: 160000 commit f4a9849fb127f8d2d664dfc56890752ad180c507	omega
+runtime pin: 160000 commit 12e71aad80fda23a428317d11b0dac02d1c777f1	sovereign-core
+realization pin: 160000 commit 2043924224b9ecffd79de2c37b2fe7a3a5396e0c	physics
+aienos: no component at not-a-component
+refusal exit: 2; index unchanged
+scope: git pins and path refusal only; no component build or hardware test
