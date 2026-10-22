@@ -1,8 +1,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/aienos-wordmark-dark.svg">
-  <img src="assets/aienos-wordmark-light.svg" width="560" alt="AienOS: the core tree of AIEN">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/aien-dev/.github/a424f5950de13280efc9bb8355ddaa85b8cede7d/profile/assets/aienos-wordmark-dark.svg">
+  <img src="https://raw.githubusercontent.com/aien-dev/.github/a424f5950de13280efc9bb8355ddaa85b8cede7d/profile/assets/aienos-wordmark-light.svg" width="380" alt="AienOS: the core tree of AIEN">
 </picture>
 
 **Persistent machine intelligence on a machine you own, built in the open.**
@@ -54,8 +54,8 @@ What this repository is not: a release, a finished system, or a claim of hardwar
 ## Get the whole tree
 
 ```bash
-git clone --recurse-submodules --shallow-submodules https://github.com/aien-dev/aienix.git
-cd aienix
+git clone --recurse-submodules --shallow-submodules https://github.com/aien-dev/aienix.git aienos
+cd aienos
 ./aienos status      # each component: the commit pinned here, and whether its main has moved on
 ```
 
