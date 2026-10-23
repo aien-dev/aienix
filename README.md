@@ -85,6 +85,7 @@ These six depend on each other in a loop and are the reason the tree exists. Eac
 
 | Repository | What it is |
 | :-- | :-- |
+| [allen](https://github.com/aien-dev/allen) | Allen programme home: P0–P7, B0 acceptance contract, data contracts, evaluation harness and release manifests; existing identity, memory and runtime authorities are unchanged. |
 | [synapse](https://github.com/aien-dev/synapse) | Agent-native changeset service and shared coordination board, with Git and Radicle interoperability. |
 | [benchmarks](https://github.com/aien-dev/benchmarks) | Reproducible measurement bundles. Speed is reported against the machine's physical ceiling and our own previous run. |
 | [interplane](https://github.com/aien-dev/interplane) | Open interoperability protocol between AI models and agent runtimes. Models express intent; runtimes retain authority. |
