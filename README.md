@@ -30,7 +30,7 @@ The project is led by one engineer, Drake Stapleton, working with AI agents as d
 
 ## Status
 
-**Front door open; one tree later.** As of 2026-10-18 this repository is the entry point to AIEN: every core component and attachment is linked in at a pinned commit, so one clone fetches the whole system at versions that belong together (see [Get the whole tree](#get-the-whole-tree)). The code itself still lives and is developed in each component's own repository, and each one is pre-alpha and says so. The components will be imported here one at a time, with full history, once each one's open pull requests have drained.
+**Front door open; one tree later.** As of 2026-10-18 this repository is the entry point to AIEN: every core component and attachment is linked in at a pinned commit, so one clone fetches the whole system at versions that belong together (see [Get the whole tree](#get-the-whole-tree)). The code itself still lives and is developed in each component's own repository. AienOS is now in alpha testing: testers install the alpha bundle (the Core engine, the Omega install wizard and compiler, and the CUDApp user-space replacement), whose GPU path runs only on the DGX Spark GB10 and whose three-run physical qualification has not yet been run. Every other component is still pre-alpha and says so in its own repository. The components will be imported here one at a time, with full history, once each one's open pull requests have drained.
 
 ### Latest: Allen lives on a computer of its own
 
