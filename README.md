@@ -46,7 +46,7 @@ cd aienix
 ./aienos status      # each component: the commit pinned here, and whether its main has moved on
 ```
 
-Already cloned without the components? Run `./aienos get`. Each folder below is the component's own repository, checked out at the commit this tree pins; issues and pull requests belong in that repository. `./aienos bump` moves the pins forward to each component's newest main, and that change comes in through a pull request like any other, so the pins only ever point at merged, judged work.
+Already cloned without the components? Run `./aienos get`. Each folder below is the component's own repository, checked out at the commit this tree pins; issues and pull requests belong in that repository. `./aienos bump` stages each selected component's current remote `main` commit for a pull request. It does not inspect receipts or judge that commit. Review the exact component changes and available evidence before advancing a pin; a merged commit or updated pin is not hardware qualification.
 
 ## The tree
 
@@ -110,14 +110,11 @@ The Crumb Protocol repositories ([crumb-spec](https://github.com/aien-dev/crumb-
 
 ## How a change gets in
 
-Every pull request in every AIEN repository is judged on the Spark itself, by our own pipeline, not by a hosted runner.
+Changes go through each component repository's review process. A pull request, a merge into `main`, and an Alpha qualification are distinct states. This front-door repository has no verification workflow; its pins select source revisions, not verdicts.
 
-1. **A gate manifest** in the repository declares each test, the files it depends on, and what counts as a pass.
-2. **The judge** checks out the exact commit, reruns only the gates whose inputs changed, and writes an evidence bundle: per-gate verdicts, exit codes, and content-addressed logs.
-3. **The verdict is signed and published** to the pull request. The hosted GitHub check does one thing only: confirm that the published bundle matches the commit.
-4. **A maintainer labels the change** `ready-to-merge`. The pipeline merges it when the Spark bundle passes and the hosted check agrees. Nothing merges on a green badge alone.
+In components using the current [AIEN verification workflow](https://github.com/aien-dev/aienux/blob/main/.github/workflows/aien-verification.yml), GitHub's pull-request and `main` checks are advisory, not a Spark-before-merge gate. Spark full-bundle verification applies to an `alpha/*` tag on a commit already on `main`. Inspect the relevant component's workflow, receipt and maintainer process for its actual status. Do not infer a signed bundle, a hardware result or permission to merge from a green hosted check or this tree's pin.
 
-The design is recorded in the architecture repository as [ADR 0033](https://github.com/aien-dev/aien-architecture/tree/main/docs/adr). Each directory also carries a `.crumb` file describing its purpose and contents; a change that leaves the crumbs stale fails its gate.
+The verification design is recorded in the architecture repository as [ADR 0033](https://github.com/aien-dev/aien-architecture/tree/main/docs/adr). Directories may also carry `.crumb` metadata; its presence alone is not a verification receipt.
 
 ## Principles
 
@@ -144,7 +141,7 @@ The move into one tree is deliberately slow and reversible at every step.
 
 - **Read first:** the [architecture repository](https://github.com/aien-dev/aien-architecture) holds the doctrine, the decision records and the current execution plan. Its `PLAN_AUTHORITY.md` says which document wins when two disagree.
 - **Report or propose:** open an issue on the component repository the change belongs to. Issues move here when the component does.
-- **Expect verification:** every contribution is judged on the Spark as described above, and a change is not complete until its evidence bundle is published.
+- **Expect evidence:** inspect the component's applicable checks and receipts. A contribution's merge status and any later Spark Alpha qualification must be reported separately; this front door does not certify either.
 - **Website:** [aienos.com](https://www.aienos.com)
 
 ## Licence

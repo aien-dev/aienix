@@ -3,14 +3,14 @@
     "generated": {
       "children": [],
       "children_root": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "compiled_at": "2026-10-16T15:45:35Z",
+      "compiled_at": "2026-10-26T14:07:55Z",
       "compiler": "crumb-compile/1",
-      "digest": "sha256:7b24cfd9fd6f6cad44d484ea7ef6cbb902cd13cd8c132803a220d316cc8566c0",
+      "digest": "sha256:6d0cd0612a0b7b23ea069efb8abfc5fa9ffd324b35eb4664812d224db802a624",
       "evidence_files": 0,
       "evidence_root": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "files": 2,
-      "generated_at_commit": "23bdb257f6ed0d386294bcb70ca2df686ef0e4ee",
-      "source_tree": "sha256:a75dd43874f0cc7f5b6d77553f9b763939172cf0010469e661fa7c852389dfc4"
+      "generated_at_commit": "31f2b7bb517821504cccd5a53da2eb172aee65e4",
+      "source_tree": "sha256:b377aedc03d94710d0f050dc7fc31e25c13690573306a7fff11d72bf530432e6"
     }
   },
   "name": "assets",
