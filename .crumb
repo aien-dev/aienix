@@ -10,14 +10,14 @@
         }
       ],
       "children_root": "sha256:f04efa33e0bafb79cfc40d2e2b902002f36eb006811e630a8fd63e53ac1e23e9",
-      "compiled_at": "2026-10-26T14:07:55Z",
+      "compiled_at": "2026-10-26T20:31:11Z",
       "compiler": "crumb-compile/1",
-      "digest": "sha256:ec76c89b0713842b693e8d8e7c645e38f1c1e362ba76fb8aca16b757c645b666",
+      "digest": "sha256:ec24b82eaffaf9c609de41bd3e59e9e209ef8df0d33fea158e436303fc24e563",
       "evidence_files": 0,
       "evidence_root": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "files": 8,
-      "generated_at_commit": "31f2b7bb517821504cccd5a53da2eb172aee65e4",
-      "source_tree": "sha256:acdc176ff3da68c7d1eb66f0a5047220622c4d381658e9fba3f6ca21e916fb25"
+      "files": 10,
+      "generated_at_commit": "292a38cd0357b61bf1659d4cd6931012f335819e",
+      "source_tree": "sha256:da3e84247f1a10728db28984a5a583390ea9aa27a74152470639c4699b936601"
     }
   },
   "name": "aienix",
