@@ -149,3 +149,14 @@ The move into one tree is deliberately slow and reversible at every step.
 AGPL-3.0-or-later. See [LICENSE](LICENSE).
 
 <sub>AienOS is not a UNIX and makes no such claim. UNIX is a registered trademark of The Open Group. NVIDIA, DGX and Grace Blackwell are trademarks of NVIDIA Corporation.</sub>
+
+## Human-Directed Agentic Engineering
+
+Development follows Human-Directed Agentic Engineering (HDAE): humans define goals,
+architecture, constraints, acceptance criteria, and stopping points; agents implement,
+execute checks, diagnose failures, and revise within those boundaries. Human review
+retains responsibility for claims, acceptance, and release decisions.
+
+For the documented method and a systems-software case study, see Gregory M. Kurtzer,
+*Ginux: Building an Independent Kernel That Runs Linux Userspace through Human-Directed
+Agentic Engineering* (2026), https://doi.org/10.5281/zenodo.23682548.
