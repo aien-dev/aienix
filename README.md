@@ -32,9 +32,9 @@ The project is led by one engineer, Drake Stapleton, working with AI agents as d
 
 **Front door open; one tree later.** As of 2026-10-18 this repository is the entry point to AIEN: every core component and attachment is linked in at a pinned commit, so one clone fetches the whole system at versions that belong together (see [Get the whole tree](#get-the-whole-tree)). The code itself still lives and is developed in each component's own repository. AienOS is now in alpha testing: testers install the alpha bundle (the Core engine, the Omega install wizard and compiler, and the CUDApp user-space replacement), whose GPU path runs only on the DGX Spark GB10 and whose three-run physical qualification has not yet been run. Every other component is still pre-alpha and says so in its own repository. The components will be imported here one at a time, with full history, once each one's open pull requests have drained.
 
-### Latest: Allen lives on a computer of its own
+### Latest: Aien lives on a computer of its own
 
-*Updated 2026-10-18.* **Allen**, the resident agent AIENOS is built around, runs full screen on a desktop test computer under the AIENOS kernel, with no other operating system underneath. Shown on that real machine: AIENOS loads over the local network as a signed image; a wired keyboard works; "Hello Allen" gets "Hello Humanity." from Allen's own local rules, with no model and no network; and Allen made its own memory section on the owner-approved internal disk, without touching the existing data, then saved to both copies. Shown so far only in the emulator: Allen remembering a taught note after a restart, and the new startup, a night sky where two black holes merge and Allen forms from their light, as a mind drawn in light rather than a face. Not done yet: confining what devices can reach in memory (an IOMMU), so it is not for sensitive use. Details and test results: [AIENOS pull request #415](https://github.com/aien-dev/aienos-mv/pull/415).
+*Updated 2026-10-18.* **Aien**, the resident agent AIENOS is built around, runs full screen on a desktop test computer under the AIENOS kernel, with no other operating system underneath. Shown on that real machine: AIENOS loads over the local network as a signed image; a wired keyboard works; a typed greeting gets "Hello Humanity." from Aien's own local rules, with no model and no network; and Aien made its own memory section on the owner-approved internal disk, without touching the existing data, then saved to both copies. Shown so far only in the emulator: Aien remembering a taught note after a restart, and the new startup, a night sky where two black holes merge and Aien forms from their light, as a mind drawn in light rather than a face. Not done yet: confining what devices can reach in memory (an IOMMU), so it is not for sensitive use. Details and test results: [AIENOS pull request #415](https://github.com/aien-dev/aienos-mv/pull/415). On that date the agent was still called Allen; Allen has now evolved into the final Aien (2026-10-26).
 
 What this repository is not: a release, a finished system, or a claim of hardware qualification. When a component is qualified on the Spark, the evidence bundle that proves it will be linked from this page.
 
@@ -149,3 +149,14 @@ The move into one tree is deliberately slow and reversible at every step.
 AGPL-3.0-or-later. See [LICENSE](LICENSE).
 
 <sub>AienOS is not a UNIX and makes no such claim. UNIX is a registered trademark of The Open Group. NVIDIA, DGX and Grace Blackwell are trademarks of NVIDIA Corporation.</sub>
+
+## Human-Directed Agentic Engineering
+
+Development follows Human-Directed Agentic Engineering (HDAE): humans define goals,
+architecture, constraints, acceptance criteria, and stopping points; agents implement,
+execute checks, diagnose failures, and revise within those boundaries. Human review
+retains responsibility for claims, acceptance, and release decisions.
+
+For the documented method and a systems-software case study, see Gregory M. Kurtzer,
+*Ginux: Building an Independent Kernel That Runs Linux Userspace through Human-Directed
+Agentic Engineering* (2026), https://doi.org/10.5281/zenodo.23682548.
