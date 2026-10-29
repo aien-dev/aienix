@@ -4,20 +4,20 @@
       "children": [
         {
           "digest": "6d0cd0612a0b7b23ea069efb8abfc5fa9ffd324b35eb4664812d224db802a624",
-          "last_commit": "99cc353",
+          "last_commit": "8f4e31f",
           "name": "assets",
           "purpose": "Hand-made wordmark for the front page, light and dark variants; no external assets."
         }
       ],
       "children_root": "sha256:f04efa33e0bafb79cfc40d2e2b902002f36eb006811e630a8fd63e53ac1e23e9",
-      "compiled_at": "2026-10-28T22:39:08Z",
+      "compiled_at": "2026-10-29T20:34:33Z",
       "compiler": "crumb-compile/1",
-      "digest": "sha256:8dc90824d2b1cb1ba51c586f145d38898cc5d5004357c7531068322c2e448c3a",
+      "digest": "sha256:bea3dfa5fcbf39c2c46440f644f224b14123ab520eaf6f6302822d3f230c2467",
       "evidence_files": 0,
       "evidence_root": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "files": 8,
-      "generated_at_commit": "d1c43e21b75e598e407c5fc06e38841c5882591c",
-      "source_tree": "sha256:29a76565984b1d569c7bb89af262a19fb6be49f8f72667ef3bc5bcc84a45d97a"
+      "generated_at_commit": "8f4e31f05ee86b86672fc8bde960c6da23f59bb4",
+      "source_tree": "sha256:89d1cb06732b5a3eebc3ca4a296206d154b85edf7237f15d5797761150ee9d5a"
     }
   },
   "name": "aienix",
