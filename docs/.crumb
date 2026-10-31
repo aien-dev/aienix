@@ -3,21 +3,21 @@
     "generated": {
       "children": [
         {
-          "digest": "6cb2c38a6d497c969f3b618a4e46677afecec3f242af082e0858b3c9246dabc1",
+          "digest": "a39dd0b0831482bb3d8e5a3083b801e75540ee6f7a1bc2bac703323c82bbef8c",
           "last_commit": "6fc6396",
           "name": "plans",
           "purpose": "Dated plans and proposals for Aienix, each marked with its review status; a plan is not a decisi"
         }
       ],
-      "children_root": "sha256:a7d7197ed56e91732f1d5a90fce420c5a6b8e3fb5be2d2afbcb3b3ffb405e63e",
-      "compiled_at": "2026-10-16T18:26:28Z",
+      "children_root": "sha256:3b9e1909f268b5ef086546feb0165a7740d9f75e4dd34c3cefcb8366e5758142",
+      "compiled_at": "2026-10-31T11:00:16Z",
       "compiler": "crumb-compile/1",
-      "digest": "sha256:2cd009d94071352b9f3b197e774a2cd7480f7119170ac993cb17b0c84de3ebab",
+      "digest": "sha256:9b4d3e18760b749e899cf49938f83db80792c260fa8cde3656dc55e2369f051b",
       "evidence_files": 4,
       "evidence_root": "sha256:43f613ac4c8f8433f0e1c15a886add053aab7a1873dde72335bf71993d02c134",
       "files": 5,
-      "generated_at_commit": "6fc6396c885d0b113d0c58bedc8261b8e44b4ab5",
-      "source_tree": "sha256:64785838f08cd4536336cf8a20f16a4c8a1c7f95bee9ac54955c1dd9c071987b"
+      "generated_at_commit": "af4cca69b9fd828e5b4606f16cefc39aaabb898a",
+      "source_tree": "sha256:e20b048dd7666b7fa3b57fd0f134f16fbfdfc77aa3a83ec9395e8a5630ccd6c3"
     }
   },
   "name": "docs",

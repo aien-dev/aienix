@@ -9,21 +9,21 @@
           "purpose": "Hand-made wordmark for the front page, light and dark variants; no external assets."
         },
         {
-          "digest": "2cd009d94071352b9f3b197e774a2cd7480f7119170ac993cb17b0c84de3ebab",
+          "digest": "9b4d3e18760b749e899cf49938f83db80792c260fa8cde3656dc55e2369f051b",
           "last_commit": "6fc6396",
           "name": "docs",
           "purpose": "Planning documents and decision records for the Aienix core tree"
         }
       ],
-      "children_root": "sha256:8fcfb2c3335034390bd77bdce26d2711c1e91db6ce0bc3608aa6cf609d9e4c53",
-      "compiled_at": "2026-10-31T02:25:05Z",
+      "children_root": "sha256:64571795057d478f43b5cdf2a2e8f4c46e9966850c1e78af0b5ce58a747f2ede",
+      "compiled_at": "2026-10-31T11:00:16Z",
       "compiler": "crumb-compile/1",
-      "digest": "sha256:525a5a1be75c53e444e6a942ccf791869daf9c63dcb33a779c11b6c15ddd863c",
+      "digest": "sha256:2e34ede8c9c91a3d5fcc9a0c1d62d0fba478658ee9e9f8bfd9346bd123eac026",
       "evidence_files": 4,
       "evidence_root": "sha256:43f613ac4c8f8433f0e1c15a886add053aab7a1873dde72335bf71993d02c134",
       "files": 13,
-      "generated_at_commit": "a7ab4e5abcfee228bd43934bea161268be772fd1",
-      "source_tree": "sha256:62cc80aa270b887a2453602a0f9b1177ecd1d2baee4a7d777ebd726da47f8b0f"
+      "generated_at_commit": "af4cca69b9fd828e5b4606f16cefc39aaabb898a",
+      "source_tree": "sha256:6b6cadfa876829c88573796ca77acd2ea5676099807db42e011923109f45452f"
     }
   },
   "name": "aienix",

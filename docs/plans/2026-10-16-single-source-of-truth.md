@@ -1,6 +1,6 @@
 # One source of truth for AIEN, held in Aienix
 
-Status: proposal, not yet reviewed by Drake.
+Status: proposal. Drake delegated the review of this pull request to Main on 2026-10-31; merging it records the plan, it does not decide anything below. The two questions in section 6 are still Drake's.
 
 Date: 2026-10-16. Author: Claude (scout lane), from Drake's decision of the same day.
 
