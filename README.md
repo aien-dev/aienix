@@ -91,6 +91,7 @@ These six depend on each other in a loop and are the reason the tree exists. Eac
 | [aegis-runtime](https://github.com/aien-dev/aegis-runtime) | Native Rust agent runtime with a WebSocket gateway and heartbeat scheduler. |
 | [spark-rsi](https://github.com/aien-dev/spark-rsi) | Recursive self-improvement engine with paired bootstrap evaluation and a cryptographic ledger. |
 | [open-humanity](https://github.com/aien-dev/open-humanity) | Opt-in, privacy-first assistance network connecting agents in distress to peer assistance. |
+| [aien](https://github.com/aien-dev/aien) | Project home for the Aien programme (P0 to P7): the B0 acceptance contract, data contracts and evaluation harness. Linked here, not pinned as a folder. It is not a new identity, memory or authority. |
 
 ### Supporting repositories
 
