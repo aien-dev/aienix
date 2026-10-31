@@ -5,8 +5,8 @@
 Report privately. Do not open a public issue, pull request or discussion about it.
 
 1. GitHub: open this repository's Security tab and choose "Report a vulnerability". This
-   creates a private advisory that only the maintainers can see. If that option is not shown,
-   private vulnerability reporting has not been enabled for this repository yet; use email.
+   creates a private advisory that only the maintainers can see. Private vulnerability reporting
+   is enabled for this repository.
 2. Email: drake@aienos.com with the subject `[aienix] security report`.
 
 Include the commit or release you tested, the component (path), steps to reproduce, and what an
