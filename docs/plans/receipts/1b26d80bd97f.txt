@@ -1,0 +1,22 @@
+receipt: org:1b26d80bd97f
+query: facts verify
+time: 2026-10-16T18:17:01Z
+mirror: repos_listed=91 repos_mirrored=91 failed= updated=2026-10-16T17:43Z 
+repos_searched: 91 (default branch + newest 12 branches active in 60 days, commit messages on all branches) + GitHub issues and PRs
+hits: 15
+  issue  aien-dev/aien-sovereign-core-mv#553 [open] perf: native local HTTP client and aws-lc off the build critical path
+  issue  aien-dev/aien-architecture-mv#239 [open] Program: public front door, websites and front ends (design, truth, automation)
+  issue  aien-dev/interplane.io#3 [closed] Render figures from the interplane repository and deploy to the hub automatically
+  issue  aien-dev/aien-sovereign-core-mv#498 [closed] How private must saved KV files be?
+  issue  aien-dev/aienos.com#30 [closed] Rewrite and redesign the aienos.com front page to today's truth, with a live facts feed
+  issue  aien-dev/aienos-mv#35 [open] Cortex persistence and the agent remembering across reboot
+  issue  aien-dev/aienos-mv#336 [open] Spark storage for AIENOS: share the single NVMe by shrinking the Linux root (owner decisio
+  pr     aien-dev/aienos.com#31 [closed] site: truthful front page with live facts, no outside fonts or scripts
+  pr     aien-dev/interplane.io#4 [merged] site: Rust generator reads the protocol repository and renders the page
+  pr     aien-dev/aien-sovereign-core-mv#138 [merged] docs: DEV-MODEL-0 Phase A code audit + Gemma 4 12B discovery
+  pr     aien-dev/aien-sovereign-core-mv#404 [merged] CTRL-E5 receipt in the E2E chain; verifier judges the row itself (#403)
+  pr     aien-dev/aienos.com#32 [merged] site: facts from the public GitHub record, follow section replaces the waitlist, no outsid
+  pr     aien-dev/aien-architecture-mv#161 [merged] docs(plans): osh R1 acceptance and status record (NOT A MASTER PLAN, #158)
+  pr     aien-dev/aien-sovereign-core-mv#406 [merged] WHOLE-SYSTEM-E2E harness v1.3: GB10 mode + ACCEPTANCE-v1.3-gb10 (R6, sc#402)
+  pr     aien-dev/aienos-mv#315 [merged] native v1 P06 cut 4 (aienos): remember and facts verbs on the Cortex journal
+# Public copy: 0 line(s) naming private repositories withheld. Full receipt on the Spark at ~/org-mirror/receipts/1b26d80bd97f.txt

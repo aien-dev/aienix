@@ -1,0 +1,78 @@
+receipt: org:8ef76b3bbdee
+query: single source of truth
+time: 2026-10-16T18:16:35Z
+mirror: repos_listed=91 repos_mirrored=91 failed= updated=2026-10-16T17:43Z 
+repos_searched: 90 (default branch + branches active in 60 days, commit messages on all branches) + GitHub issues and PRs
+hits: 93
+  commit aien-dev/odysseus 0dd2d6e2 Add a 'Rebuild llama.cpp' Cookbook action to force a fresh GPU build (#1787)
+  commit aien-dev/odysseus 36bd2f34 fix: session context drifting — messages leaking between chats (#135) (#267)
+  commit aien-dev/odysseus 4bc3d104 fix(auth): centralize password and username validation constants (#4120)
+  commit aien-dev/odysseus 525e3ac9 refactor(constants): single source of truth for data dir (#3368)
+  commit aien-dev/odysseus 6def5de8 fix(auth): tie remember-me cookie lifetime to TOKEN_TTL (#4472)
+  commit aien-dev/t3code 19470b2902 Add 100,000+ developers callout to endorsements header
+  commit aien-dev/t3code 546e1f35a0 refactor(web): centralize desktop-local env signal, label at source, share bootstrap reader
+  commit aien-dev/t3code ee7c0f80bd refactor(desktop): single source of truth for the wsl: instance-id prefix
+  commit aien-spark/jan 6ac3c074f feat(agent-tui): slash command hints popup (#186)
+  commit aien-spark/jan 89fd3c564 feat(agent-tui): slash command hints popup (#186)
+  commit aien-spark/jan c2a9d6662 feat(agent-tui): slash command hints popup (#186)
+  commit aien-spark/jan da7ed4487 feat(agent-tui): /think and /reasoning as aliases of /effort (#8771)
+  commit aien-spark/jan fb3750e48 feat(agent-tui): slash command hints popup (#186)
+  commit aien-spark/NightDriverStrip 4cb4bfdd This check-in improves the SetupUI guided installer flow and fixes several runtime issues foun
+  commit aien-spark/NightDriverStrip e66ff716 This check-in improves the SetupUI guided installer flow and fixes several runtime issues foun
+  file   aien-dev/aegis-runtime-mv [fix/fmt-collapse-info-line] CONSTITUTION.md
+  file   aien-dev/aien-architecture-mv [main] docs/plans/RUST_TO_C_MIGRATION.md
+  file   aien-dev/aien-harness [main] CONSTITUTION.md
+  file   aien-dev/aien-sovereign-core-mv [main] scripts/sync-standalone-repos.sh
+  file   aien-dev/cortex-rs [main] CONSTITUTION.md
+  file   aien-dev/crumb-spec-mv [main] CONSTITUTION.md
+  file   aien-dev/harvester [main] CONSTITUTION.md
+  file   aien-dev/mobhub [main] CONSTITUTION.md
+  file   aien-dev/MojoLlama [main] src/mojollama/model/architectures.py
+  file   aien-dev/odysseus [dev] CONTRIBUTING.md
+  file   aien-dev/odysseus [dev] core/constants.py
+  file   aien-dev/odysseus [dev] core/models.py
+  file   aien-dev/odysseus [dev] routes/cookbook_helpers.py
+  file   aien-dev/odysseus [dev] routes/cookbook_routes.py
+  file   aien-dev/odysseus [dev] src/agent_tools/__init__.py
+  file   aien-dev/odysseus [dev] src/client_tool_contract.py
+  file   aien-dev/odysseus [dev] src/config.py
+  file   aien-dev/odysseus [dev] src/constants.py
+  file   aien-dev/odysseus [dev] src/exceptions.py
+  file   aien-dev/odysseus [dev] src/research_utils.py
+  file   aien-dev/odysseus [dev] src/settings.py
+  file   aien-dev/odysseus [dev] src/task_scheduler.py
+  file   aien-dev/odysseus [dev] src/text_helpers.py
+  file   aien-dev/odysseus [dev] src/tool_schemas.py
+  file   aien-dev/rad-id-sync [main] CONSTITUTION.md
+  file   aien-dev/spark-adapters [main] CONSTITUTION.md
+  file   aien-dev/spark-crumbs-mv [main] CONSTITUTION.md
+  file   aien-dev/spark-debugger [main] CONSTITUTION.md
+  file   aien-dev/spark-dream [main] CONSTITUTION.md
+  file   aien-dev/spark-hive [main] CONSTITUTION.md
+  file   aien-dev/spark-inquisitor [main] CONSTITUTION.md
+  file   aien-dev/spark-rsi-mv [feat/capability-graph-hypothesis-contract] CONSTITUTION.md
+  file   aien-dev/spark-supervisor [main] CONSTITUTION.md
+  file   aien-dev/t3code [main] apps/desktop/src/backend/DesktopBackendConfiguration.ts
+  file   aien-dev/t3code [main] apps/desktop/src/preview/WebviewPreferences.ts
+  file   aien-dev/t3code [main] apps/web/scripts/build-libghostty-wasm.sh
+  file   aien-dev/t3code [main] apps/web/src/hooks/useTheme.ts
+  file   aien-dev/t3code [main] apps/web/src/terminal/ghostty/runtimeAbi.test.ts
+  file   aien-dev/t3code [main] .repos/alchemy-effect/AGENTS.md
+  file   aien-dev/t3code [main] .repos/alchemy-effect/examples/cloudflare-git-service/src/ui/styles.css
+  file   aien-dev/t3code [main] .repos/alchemy-effect/examples/cloudflare-git-service/src/ui/theme.tsx
+  file   aien-dev/t3code [main] .repos/alchemy-effect/examples/cloudflare-tanstack-rpc-drizzle/README.md
+  file   aien-dev/t3code [main] .repos/alchemy-effect/examples/cloudflare-tanstack-rpc-drizzle/src/backend/rpc.ts
+  file   aien-dev/t3code [main] .repos/alchemy-effect/packages/alchemy/src/Prisma/ORM/Contract.ts
+  file   aien-dev/t3code [main] .repos/alchemy-effect/website/src/brand/yantra.ts
+  file   aien-dev/t3code [main] .repos/alchemy-effect/website/src/content/docs/blog/2026-08-20-generating-local-emulators.md
+  file   aien-dev/t3code [main] .repos/alchemy-effect/website/src/content/docs/cloudflare/frontend/full-stack-tanstack-rpc-drizzle.mdx
+  file   aien-dev/t3code [main] .repos/alchemy-effect/website/src/content/docs/infrastructure-as-code/provider.mdx
+  file   aien-spark/aien-dev [content/profile-aienos-branding] CONSTITUTION.md
+  file   aien-spark/jan [main] src-tauri/plugins/tauri-plugin-agent-tools/guest-js/types.ts
+  file   aien-spark/jan [main] src-tauri/plugins/tauri-plugin-agent-tools/src/commands.rs
+  file   aien-spark/jan [main] src-tauri/plugins/tauri-plugin-vector-db/src/db.rs
+  file   aien-spark/jan [main] src-tauri/src/core/app/commands.rs
+  file   aien-spark/jan [main] src-tauri/src/core/cli/auth/account.rs
+  file   drakestapleton/aien-architecture [fix/qualification-evidence] docs/plans/RUST_TO_C_MIGRATION.md
+  file   drakestapleton/aien-sovereign-core [fix/cockpit-access] scripts/sync-standalone-repos.sh
+# Public copy: 22 line(s) naming private repositories withheld. Full receipt on the Spark at ~/org-mirror/receipts/8ef76b3bbdee.txt
