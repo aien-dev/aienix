@@ -10,20 +10,20 @@
         },
         {
           "digest": "9b4d3e18760b749e899cf49938f83db80792c260fa8cde3656dc55e2369f051b",
-          "last_commit": "",
+          "last_commit": "59b32f2",
           "name": "docs",
           "purpose": "Planning documents and decision records for the Aienix core tree"
         }
       ],
       "children_root": "sha256:64571795057d478f43b5cdf2a2e8f4c46e9966850c1e78af0b5ce58a747f2ede",
-      "compiled_at": "2026-10-31T11:42:07Z",
+      "compiled_at": "2026-10-31T11:42:19Z",
       "compiler": "crumb-compile/1",
-      "digest": "sha256:6ffd0b43d9c554bf42ef7c69838ad27fb4f5fd7414a9c51ffecec86d7556d2b6",
+      "digest": "sha256:26b1a8d44f561c8392add4a9de95d75f832487dfa1768be382e2effdb58c7bf3",
       "evidence_files": 4,
       "evidence_root": "sha256:43f613ac4c8f8433f0e1c15a886add053aab7a1873dde72335bf71993d02c134",
       "files": 15,
-      "generated_at_commit": "c34178d1c1f3e8d4a092f5644b703028da5df0ef",
-      "source_tree": "sha256:4f3feac5d3032ef9e810a947f732506ff752c19efa9c42af7d6520d8aa0241a0"
+      "generated_at_commit": "eb86386b63762496db4d2fe641450d9e2b82d406",
+      "source_tree": "sha256:0bf12a6f88f1b4cfb11063b23158bad5846c4172cdb320273e1123dec06b6720"
     }
   },
   "name": "aienix",

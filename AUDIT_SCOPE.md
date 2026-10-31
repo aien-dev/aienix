@@ -1,7 +1,8 @@
 # Audit scope
 
 Written for an outside, independent security audit. Revision described:
-`292a38cd0357b61bf1659d4cd6931012f335819e` on `main`, 2026-10-26. Everything below is taken from
+`59b32f2` on `main` (2026-10-31; the only change since `292a38cd` on 2026-10-26 is the docs-only
+proposal `docs/plans/2026-10-16-single-source-of-truth.md` with its receipts). Everything below is taken from
 the repository's own files at that revision; items marked NOT_RUN were not executed while writing
 this document.
 
@@ -10,7 +11,8 @@ this document.
 The AienOS front door. It links six core components and six attachments as Git submodules pinned at
 exact commits, so one clone fetches versions that belong together. It contains one executable, the
 69-line POSIX shell script `aienos` (`get`, `status`, `bump`, `help`), plus `README.md`,
-`AGENTS.md`, two SVG wordmarks in `assets/`, `.crumb` metadata and `LICENSE` (AGPL-3.0-or-later).
+`AGENTS.md`, two SVG wordmarks in `assets/`, `.crumb` metadata, a docs-only plan proposal under
+`docs/plans/` and `LICENSE` (AGPL-3.0-or-later).
 Component code is not here; it is developed in each component's repository. README states it is not
 a release, a finished system, or a claim of hardware qualification.
 
