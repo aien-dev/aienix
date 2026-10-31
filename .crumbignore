@@ -1,0 +1,14 @@
+# Components linked in at pinned commits (git submodules). Each keeps its own
+# .crumb files, compiled in its own repository; this tree never rewrites them.
+aienos
+omega
+sovereign-core
+architecture
+protocols
+physics
+attachments/synapse
+attachments/benchmarks
+attachments/interplane
+attachments/aegis-runtime
+attachments/spark-rsi
+attachments/open-humanity

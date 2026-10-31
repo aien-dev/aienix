@@ -1,14 +1,15 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/aienix-wordmark-dark.svg">
-  <img src="assets/aienix-wordmark-light.svg" width="560" alt="Aienix: the core tree of AIEN">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/aienos-wordmark-dark.svg">
+  <img src="assets/aienos-wordmark-light.svg" width="560" alt="AienOS: the core tree of AIEN">
 </picture>
 
 **Persistent machine intelligence on a machine you own, built in the open.**
 
-[What Aienix is](#what-aienix-is) ·
+[What AienOS is](#what-aienos-is) ·
 [Status](#status) ·
+[Get the whole tree](#get-the-whole-tree) ·
 [The tree](#the-tree) ·
 [How a change gets in](#how-a-change-gets-in) ·
 [Principles](#principles) ·
@@ -19,42 +20,61 @@
 
 ---
 
-## What Aienix is
+## What AienOS is
 
 AIEN is a sovereign computing stack: an operating system, a language with its own GPU engine, a host runtime, and a verification pipeline, all written to run as close to the hardware as the hardware allows. The development machine is a single NVIDIA DGX Spark (Grace Blackwell GB10). Nothing in the trusted base depends on an outside service, and every claim the project makes resolves to a reproducible command and a signed evidence bundle.
 
-**Aienix is the core tree of that stack.** It follows the Unix idea the way its authors meant it: small tools that each do one job and compose, kept together in one source tree so they move in step. Components that only consume the core (adapters, protocol bridges, experiments) are attachments. They live in their own repositories and plug in at a boundary with one recorded pin.
+**AienOS is the core tree of that stack.** It follows the Unix idea the way its authors meant it: small tools that each do one job and compose, kept together in one source tree so they move in step. Components that only consume the core (adapters, protocol bridges, experiments) are attachments. They live in their own repositories and plug in at a boundary with one recorded pin.
 
 The project is led by one engineer, Drake Stapleton, working with AI agents as day-to-day collaborators. The agents write, test and review; the engineer decides. The architecture, the decision records and the execution plan are public and are the authority for what gets built.
 
 ## Status
 
-**Planning.** This repository is the reserved home for the core tree. The code still lives in the component repositories listed below, each of which is pre-alpha and says so. They will be imported here one at a time, with full history, once each one's open pull requests have drained.
+**Front door open; one tree later.** As of 2026-10-18 this repository is the entry point to AIEN: every core component and attachment is linked in at a pinned commit, so one clone fetches the whole system at versions that belong together (see [Get the whole tree](#get-the-whole-tree)). The code itself still lives and is developed in each component's own repository. AienOS is now in alpha testing: testers install the alpha bundle (the Core engine, the Omega install wizard and compiler, and the CUDApp user-space replacement), whose GPU path runs only on the DGX Spark GB10 and whose three-run physical qualification has not yet been run. Every other component is still pre-alpha and says so in its own repository. The components will be imported here one at a time, with full history, once each one's open pull requests have drained.
+
+### Latest: Aien lives on a computer of its own
+
+*Updated 2026-10-18.* **Aien**, the resident agent AIENOS is built around, runs full screen on a desktop test computer under the AIENOS kernel, with no other operating system underneath. Shown on that real machine: AIENOS loads over the local network as a signed image; a wired keyboard works; a typed greeting gets "Hello Humanity." from Aien's own local rules, with no model and no network; and Aien made its own memory section on the owner-approved internal disk, without touching the existing data, then saved to both copies. Shown so far only in the emulator: Aien remembering a taught note after a restart, and the new startup, a night sky where two black holes merge and Aien forms from their light, as a mind drawn in light rather than a face. Not done yet: confining what devices can reach in memory (an IOMMU), so it is not for sensitive use. Details and test results: [AIENOS pull request #415](https://github.com/aien-dev/aienos-mv/pull/415). On that date the agent was still called Allen; Allen has now evolved into the final Aien (2026-10-26).
 
 What this repository is not: a release, a finished system, or a claim of hardware qualification. When a component is qualified on the Spark, the evidence bundle that proves it will be linked from this page.
+
+## Get the whole tree
+
+```bash
+git clone --recurse-submodules --shallow-submodules https://github.com/aien-dev/aienix.git
+cd aienix
+./aienos status      # each component: the commit pinned here, and whether its main has moved on
+```
+
+Already cloned without the components? Run `./aienos get`. Each folder below is the component's own repository, checked out at the commit this tree pins; issues and pull requests belong in that repository. `./aienos bump` stages each selected component's current remote `main` commit for a pull request. It does not inspect receipts or judge that commit. Review the exact component changes and available evidence before advancing a pin; a merged commit or updated pin is not hardware qualification.
 
 ## The tree
 
 ```text
-aienix/                        one tree, moves in step, judged as one
-├── aienos        operating system
+aienos/                        the front door: every folder is a component, pinned
+├── aienux        kernel
 ├── omega         language, semantic substrate, GPU engine
 ├── sovereign-core host runtime, inference ABI, the verification pipeline
 ├── architecture  flows, boundaries, decision records, execution plan
 ├── protocols     specifications, wire protocols, schemas
 └── physics       FORGE realization layer, boot artefacts, GB10 hardware path
 
-attachments/                   own repositories, pinned at the boundary
-   synapse, benchmarks, interplane, aegis-runtime, spark-rsi, open-humanity
+attachments/                   plug into the core at a boundary
+├── synapse        changeset service, coordination board
+├── benchmarks     reproducible measurement bundles
+├── interplane     model and runtime interoperability protocol
+├── aegis-runtime  agent runtime
+├── spark-rsi      self-improvement engine with a ledger
+└── open-humanity  opt-in assistance network
 ```
 
 ### Core components
 
-These six depend on each other in a loop and are the reason the tree exists. Until the import, each link below leads to the component's current repository.
+These six depend on each other in a loop and are the reason the tree exists. Each is linked in as a folder of this tree; the link below leads to its own repository, where the work happens.
 
-| Component | Today | What it is |
+| Component | Repository | What it is |
 | :-- | :-- | :-- |
-| **AIENOS** | [aienos](https://github.com/aien-dev/aienos) | Agent-first sovereign operating system. The agent is the control plane; the model is never the kernel. |
+| **Aienux** | [aienux](https://github.com/aien-dev/aienux) | Agent-first sovereign kernel. The agent is the control plane; the model is never the kernel. |
 | **Omega** | [omega](https://github.com/aien-dev/omega) | The canonical semantic substrate and the language the stack is being rewritten into, with its own GPU engine for the GB10. |
 | **Sovereign core** | [aien-sovereign-core](https://github.com/aien-dev/aien-sovereign-core) | Host runtime and verification tooling in Rust: the `aien` CLI and daemon, inference ABI, paged KV cache, scheduler, and the pipeline that judges every repository. |
 | **Architecture** | [aien-architecture](https://github.com/aien-dev/aien-architecture) | Canonical architecture: flows, boundaries, Architecture Decision Records, and the map from design to implementation. |
@@ -71,19 +91,31 @@ These six depend on each other in a loop and are the reason the tree exists. Unt
 | [aegis-runtime](https://github.com/aien-dev/aegis-runtime) | Native Rust agent runtime with a WebSocket gateway and heartbeat scheduler. |
 | [spark-rsi](https://github.com/aien-dev/spark-rsi) | Recursive self-improvement engine with paired bootstrap evaluation and a cryptographic ledger. |
 | [open-humanity](https://github.com/aien-dev/open-humanity) | Opt-in, privacy-first assistance network connecting agents in distress to peer assistance. |
+| [aien](https://github.com/aien-dev/aien) | Project home for the Aien programme (P0 to P7): the B0 acceptance contract, data contracts and evaluation harness. Linked here, not pinned as a folder. It is not a new identity, memory or authority. |
+
+### Supporting repositories
+
+Not part of the tree; they publish, record or serve it.
+
+| Repository | What it is |
+| :-- | :-- |
+| [aienos.com](https://github.com/aien-dev/aienos.com) | Source of the project website; its status figures are rebuilt from the repositories every hour. |
+| [interplane.io](https://github.com/aien-dev/interplane.io) | Source of the INTERPLANE website. |
+| [aien-receipts](https://github.com/aien-dev/aien-receipts) | Signed verification receipts, one per judged commit, append only. |
+| [aien-edge](https://github.com/aien-dev/aien-edge) | Our own edge server for the static sites. |
+| [agent-archive](https://github.com/aien-dev/agent-archive) | Archive of the AI agent conversations that build AIEN. |
+| [readings-window](https://github.com/aien-dev/readings-window) | Read-only window onto the development machine's live readings. |
+| [rpi5-uefi](https://github.com/aien-dev/rpi5-uefi) | Our fork of the Raspberry Pi 5 firmware chain, used to boot AIENOS on the Pi. |
 
 The Crumb Protocol repositories ([crumb-spec](https://github.com/aien-dev/crumb-spec), [spark-crumbs](https://github.com/aien-dev/spark-crumbs)) are archived; the protocol itself lives on inside the core as the `.crumb` file every directory carries.
 
 ## How a change gets in
 
-Every pull request in every AIEN repository is judged on the Spark itself, by our own pipeline, not by a hosted runner.
+Changes go through each component repository's review process. A pull request, a merge into `main`, and an Alpha qualification are distinct states. This front-door repository has no verification workflow; its pins select source revisions, not verdicts.
 
-1. **A gate manifest** in the repository declares each test, the files it depends on, and what counts as a pass.
-2. **The judge** checks out the exact commit, reruns only the gates whose inputs changed, and writes an evidence bundle: per-gate verdicts, exit codes, and content-addressed logs.
-3. **The verdict is signed and published** to the pull request. The hosted GitHub check does one thing only: confirm that the published bundle matches the commit.
-4. **A maintainer labels the change** `ready-to-merge`. The pipeline merges it when the Spark bundle passes and the hosted check agrees. Nothing merges on a green badge alone.
+In components using the current [AIEN verification workflow](https://github.com/aien-dev/aienux/blob/main/.github/workflows/aien-verification.yml), GitHub's pull-request and `main` checks are advisory, not a Spark-before-merge gate. Spark full-bundle verification applies to an `alpha/*` tag on a commit already on `main`. Inspect the relevant component's workflow, receipt and maintainer process for its actual status. Do not infer a signed bundle, a hardware result or permission to merge from a green hosted check or this tree's pin.
 
-The design is recorded in the architecture repository as [ADR 0033](https://github.com/aien-dev/aien-architecture/tree/main/docs/adr). Each directory also carries a `.crumb` file describing its purpose and contents; a change that leaves the crumbs stale fails its gate.
+The verification design is recorded in the architecture repository as [ADR 0033](https://github.com/aien-dev/aien-architecture/tree/main/docs/adr). Directories may also carry `.crumb` metadata; its presence alone is not a verification receipt.
 
 ## Principles
 
@@ -100,6 +132,7 @@ The move into one tree is deliberately slow and reversible at every step.
 
 | Step | What happens | Where it is recorded |
 | :-- | :-- | :-- |
+| 0. Front door (done 2026-10-18) | Every component linked here at a pinned commit, with `./aienos` to fetch, check and move the pins. Nothing moved out of its repository. | This repository: `.gitmodules` and the `aienix` script. |
 | 1. Dry run | Build the combined tree from throwaway copies on the Spark, run the judge's planner against it, record what breaks. Nothing is pushed. | A research note in the architecture repository, [docs/research](https://github.com/aien-dev/aien-architecture/tree/main/docs/research). |
 | 2. Pin the seams | Every cross-repository link points at a fixed commit instead of a moving branch. | Each component's lock file. |
 | 3. Decide | A proposed Architecture Decision Record names the final layout and the import order. Accepted by the project lead. | [docs/adr](https://github.com/aien-dev/aien-architecture/tree/main/docs/adr). |
@@ -109,11 +142,22 @@ The move into one tree is deliberately slow and reversible at every step.
 
 - **Read first:** the [architecture repository](https://github.com/aien-dev/aien-architecture) holds the doctrine, the decision records and the current execution plan. Its `PLAN_AUTHORITY.md` says which document wins when two disagree.
 - **Report or propose:** open an issue on the component repository the change belongs to. Issues move here when the component does.
-- **Expect verification:** every contribution is judged on the Spark as described above, and a change is not complete until its evidence bundle is published.
+- **Expect evidence:** inspect the component's applicable checks and receipts. A contribution's merge status and any later Spark Alpha qualification must be reported separately; this front door does not certify either.
 - **Website:** [aienos.com](https://www.aienos.com)
 
 ## Licence
 
 AGPL-3.0-or-later. See [LICENSE](LICENSE).
 
-<sub>Aienix is not a UNIX and makes no such claim. UNIX is a registered trademark of The Open Group. NVIDIA, DGX and Grace Blackwell are trademarks of NVIDIA Corporation.</sub>
+<sub>AienOS is not a UNIX and makes no such claim. UNIX is a registered trademark of The Open Group. NVIDIA, DGX and Grace Blackwell are trademarks of NVIDIA Corporation.</sub>
+
+## Human-Directed Agentic Engineering
+
+Development follows Human-Directed Agentic Engineering (HDAE): humans define goals,
+architecture, constraints, acceptance criteria, and stopping points; agents implement,
+execute checks, diagnose failures, and revise within those boundaries. Human review
+retains responsibility for claims, acceptance, and release decisions.
+
+For the documented method and a systems-software case study, see Gregory M. Kurtzer,
+*Ginux: Building an Independent Kernel That Runs Linux Userspace through Human-Directed
+Agentic Engineering* (2026), https://doi.org/10.5281/zenodo.23682548.
